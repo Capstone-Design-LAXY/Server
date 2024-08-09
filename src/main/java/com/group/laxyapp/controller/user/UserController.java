@@ -28,7 +28,7 @@ public class UserController {
         registRequest.setConfirmPassword(registRequest.getConfirmPassword());
 
         if (!registRequest.isPasswordMatching()) {
-            return ResponseEntity.badRequest().body("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+            return ResponseEntity.badRequest().body("비밀번호가 일치하지 않습니다!! 다시 입력해주세요.");
         }
 
         if (userService.isEmailDuplicate(registRequest.getEmail())) {
