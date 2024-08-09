@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/user/UserController.java" afterDir="false" />
     </list>
@@ -78,7 +76,7 @@
   "keyToString": {
     "Gradle.server [:LaxyAppApplication.main()].executor": "Run",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "jwjw",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/things/laxy/server"
   }
