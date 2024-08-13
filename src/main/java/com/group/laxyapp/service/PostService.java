@@ -34,6 +34,7 @@ public class PostService {
     public void updatePost(PostUpdateRequest request) throws IllegalArgumentException {
         Post post = postRepository.findByPostId(request.getPostId())
             .orElseThrow(() -> new IllegalArgumentException(PostState.NON_EXIST_POST.getMessage()));
+        request.validUpload();
 
         post.setId(request.getId());
         post.setTitle(request.getTitle());

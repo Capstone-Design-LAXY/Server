@@ -2,7 +2,6 @@ package com.group.laxyapp.dto.post.request;
 
 import com.group.laxyapp.domain.enums.PostState;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter

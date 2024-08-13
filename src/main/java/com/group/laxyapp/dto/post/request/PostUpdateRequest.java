@@ -12,4 +12,9 @@ public class PostUpdateRequest {
     private String tag;
     private String photofile;
     private LocalDateTime updatedAt;
+
+    public void validUpload() {
+        PostUploadRequest.checkValidTitle(this.title);
+        PostUploadRequest.checkValidContent(this.contents);
+    }
 }
