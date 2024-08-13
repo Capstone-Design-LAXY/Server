@@ -1,7 +1,5 @@
 package com.group.laxyapp.controller.post;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.group.laxyapp.domain.enums.PostState;
 import com.group.laxyapp.domain.post.Post;
 import java.time.LocalDateTime;
@@ -13,7 +11,7 @@ class PostControllerTest {
 
     @DisplayName("게시글 내용이 공백이라면 예외 처리")
     @Test
-    public void isNullContents() {
+    public void uploadContentsBlank() {
         try {
             new Post(1L,"title", "", "tag", "photofile", LocalDateTime.now());
         } catch (IllegalArgumentException exception) {
@@ -23,7 +21,7 @@ class PostControllerTest {
 
     @DisplayName("게시글 제목이 공백이라면 예외 처리")
     @Test
-    public void isNullTitle() {
+    public void uploadTitleBlank() {
         try {
             new Post(1L, "", "content", "tag", "photofile",LocalDateTime.now());
         } catch (IllegalArgumentException exception) {
