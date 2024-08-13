@@ -16,18 +16,27 @@ public class PostUploadRequest {
     private String photoFile;
 
 
-    public PostUploadRequest(Long id, String title, String contents, String tags, String photoFile) {
+    public static void checkValidTitle(String title) {
         if (title.isBlank()) {
             throw new IllegalArgumentException(PostState.NULL_TITLE.getMessage());
         }
-        if (contents.isBlank()) {
+    }
+
+    public static void checkValidContent(String content) {
+        if (content.isBlank()) {
             throw new IllegalArgumentException(PostState.NULL_CONTENT.getMessage());
         }
+    }
+
+
+    public PostUploadRequest(Long id, String title, String contents, String tags, String photoFile) {
+        checkValidTitle(title);
+        checkValidContent(contents);
+
         this.id = id;
         this.title = title;
         this.contents = contents;
         this.tags = tags;
         this.photoFile = photoFile;
     }
-
 }
