@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="test: 게시글 내용이 공백이라면 예외 발생">
+    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="fix: &quot;/post&quot; state 401 예외 처리 후 state 상태 오류 수정">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/group/laxyapp/controller/post/PostControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/group/laxyapp/controller/post/PostControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/enums/PostState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/enums/PostState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +106,7 @@
       <recent name="com.group.laxyapp.controller.post" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.PostControllerTest.isNullContents">
+  <component name="RunManager" selected="Application.LaxyAppApplication">
     <configuration name="LaxyAppApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.group.laxyapp.LaxyAppApplication" />
       <module name="laxy-app.main" />
@@ -136,8 +143,32 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="PostControllerTest.isNullTitle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.group.laxyapp.controller.post.PostControllerTest.isNullTitle&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.PostControllerTest.isNullTitle" />
         <item itemvalue="Gradle.PostControllerTest.isNullContents" />
       </list>
     </recent_temporary>
@@ -179,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1723544813468</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="test: 게시글 제목이 공백이라면 예외 발생">
+      <created>1723544879721</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1723544879721</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +236,8 @@
     <MESSAGE value="feat: &quot;/post&quot; state 201 게시글 등록 성공 기능 구현" />
     <MESSAGE value="feat: &quot;/post&quot; state 401 게시글 내용, 제목 공백 시 예외 발생 처리" />
     <MESSAGE value="test: 게시글 내용이 공백이라면 예외 발생" />
-    <option name="LAST_COMMIT_MESSAGE" value="test: 게시글 내용이 공백이라면 예외 발생" />
+    <MESSAGE value="test: 게시글 제목이 공백이라면 예외 발생" />
+    <MESSAGE value="fix: &quot;/post&quot; state 401 예외 처리 후 state 상태 오류 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: &quot;/post&quot; state 401 예외 처리 후 state 상태 오류 수정" />
   </component>
 </project>
