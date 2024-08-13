@@ -20,11 +20,13 @@ public class PostController {
     @PostMapping("/post")
     @ResponseBody
     public ResponseEntity<String> uploadPost(@RequestBody PostUploadRequest uploadRequest) {
+        try {
+            postService.uploadPost(uploadRequest);
+        } catch (IllegalArgumentException exception) {
+            return ResponseEntity.badRequest().body(exception.getMessage());
+        }
 
-
-        postService.uploadPost(uploadRequest);
-
-        return ResponseEntity.ok(PostState.state_201.getMessage());
+        return ResponseEntity.ok(PostState.SUCCESS_UPLOAD.getMessage());
     }
 
 }
