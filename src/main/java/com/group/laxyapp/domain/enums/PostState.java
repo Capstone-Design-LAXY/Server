@@ -4,7 +4,8 @@ public enum PostState {
     SUCCESS_UPLOAD("게시글 등록이 완료되었습니다."),
     NULL_CONTENT("게시글 내용을 작성해주세요."),
     NULL_TITLE("게시글 제목을 작성해주세요."),
-    SUCESS_UPDATE("게시글 수정이 완료되었습니다");
+    SUCCESS_UPDATE("게시글 수정이 완료되었습니다"),
+    NON_EXIST_POST("게시글이 존재하지 않습니다.");
     private final String message;
 
     PostState(String message) {
