@@ -19,4 +19,14 @@ class PostControllerTest {
             Assertions.assertEquals(exception.getMessage(), PostState.NULL_CONTENT.getMessage());
         }
     }
+
+    @DisplayName("게시글 제목이 공백이라면 예외 처리")
+    @Test
+    public void isNullTitle() {
+        try {
+            new Post("", "content", "tag", "photofile");
+        } catch (IllegalArgumentException exception) {
+            Assertions.assertEquals(exception.getMessage(), PostState.NULL_TITLE.getMessage());
+        }
+    }
 }
