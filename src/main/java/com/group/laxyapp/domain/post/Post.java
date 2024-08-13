@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,11 @@ import lombok.Setter;
 public class Post {
 
     @Id
+    @Column(name = "postId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long postId;
+
+    @Column(name = "id", nullable = false, length = 255)
     private Long id;
 
     @Column(name = "title", nullable = false, length = 255)
@@ -34,10 +39,15 @@ public class Post {
     @Column(name = "photofile", length = 255)
     private String photofile;
 
-    public Post(String title, String contents, String tag, String photofile) {
+    @Column(name = "updated_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime updatedAt;
+
+    public Post(Long id, String title, String contents, String tag, String photofile, LocalDateTime updatedAt) {
+        this.id = id;
         this.title = title;
         this.contents = contents;
         this.tag = tag;
         this.photofile = photofile;
+        this.updatedAt = updatedAt;
     }
 }
