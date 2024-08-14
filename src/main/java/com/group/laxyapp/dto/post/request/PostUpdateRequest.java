@@ -13,8 +13,7 @@ public class PostUpdateRequest {
     private String photofile;
     private LocalDateTime updatedAt;
 
-    public void validUpload() {
-        PostUploadRequest.checkValidTitle(this.title);
-        PostUploadRequest.checkValidContent(this.contents);
+    public void CheckValidUpload(String title, String contents) {
+        Validator.checkValidUpload(title, contents);
     }
 }

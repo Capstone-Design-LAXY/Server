@@ -1,4 +1,4 @@
-package com.group.laxyapp.service;
+package com.group.laxyapp.service.post;
 
 import com.group.laxyapp.domain.enums.PostState;
 import com.group.laxyapp.domain.post.Post;
@@ -36,9 +36,9 @@ public class PostService {
 
     @Transactional
     public void updatePost(PostUpdateRequest request) throws IllegalArgumentException {
+        request.CheckValidUpload(request.getTitle(), request.getContents());
         Post post = postRepository.findByPostId(request.getPostId())
             .orElseThrow(() -> new IllegalArgumentException(PostState.NON_EXIST_POST.getMessage()));
-        request.validUpload();
 
         post.setId(request.getId());
         post.setTitle(request.getTitle());
@@ -55,4 +55,8 @@ public class PostService {
         return new ArrayList<>(
             postRepository.findAll(Sort.by(Direction.DESC, "updatedAt")));
     }
+
+    public void deletePost(Long postId, Long id) {
+    }
+
 }

@@ -1,6 +1,5 @@
 package com.group.laxyapp.dto.post.request;
 
-import com.group.laxyapp.domain.enums.PostState;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,23 +13,8 @@ public class PostUploadRequest {
     private String tags;
     private String photoFile;
 
-
-    public static void checkValidTitle(String title) {
-        if (title.isBlank()) {
-            throw new IllegalArgumentException(PostState.NULL_TITLE.getMessage());
-        }
-    }
-
-    public static void checkValidContent(String content) {
-        if (content.isBlank()) {
-            throw new IllegalArgumentException(PostState.NULL_CONTENT.getMessage());
-        }
-    }
-
-
     public PostUploadRequest(Long id, String title, String contents, String tags, String photoFile) {
-        checkValidTitle(title);
-        checkValidContent(contents);
+        Validator.checkValidUpload(title, contents);
 
         this.id = id;
         this.title = title;
