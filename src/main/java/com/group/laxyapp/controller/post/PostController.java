@@ -3,7 +3,6 @@ package com.group.laxyapp.controller.post;
 
 import com.group.laxyapp.domain.enums.PostState;
 import com.group.laxyapp.domain.post.Post;
-import com.group.laxyapp.dto.post.request.PostUpdateRequest;
 import com.group.laxyapp.dto.post.request.PostUploadRequest;
 import com.group.laxyapp.service.post.PostService;
 import java.util.List;
@@ -32,9 +31,9 @@ public class PostController {
 
     @PostMapping("/post")
     @ResponseBody
-    public ResponseEntity<String> uploadPost(@RequestBody PostUploadRequest uploadRequest) {
+    public ResponseEntity<String> uploadPost(@RequestBody PostUploadRequest updateRequest) {
         try {
-            postService.uploadPost(uploadRequest);
+            postService.uploadPost(updateRequest);
             return ResponseEntity.ok(PostState.SUCCESS_UPLOAD.getMessage());
         } catch (IllegalArgumentException exception) {
             return ResponseEntity.badRequest().body(exception.getMessage());
@@ -43,7 +42,7 @@ public class PostController {
 
     @PutMapping("/post")
     @ResponseBody
-    public ResponseEntity<String> updatePost(@RequestBody PostUpdateRequest updateRequest) {
+    public ResponseEntity<String> updatePost(@RequestBody PostUploadRequest updateRequest) {
         try {
             postService.updatePost(updateRequest);
             return ResponseEntity.ok(PostState.SUCCESS_UPDATE.getMessage());

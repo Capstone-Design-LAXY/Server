@@ -3,7 +3,6 @@ package com.group.laxyapp.service.post;
 import com.group.laxyapp.domain.enums.PostState;
 import com.group.laxyapp.domain.post.Post;
 import com.group.laxyapp.domain.post.PostRepository;
-import com.group.laxyapp.dto.post.request.PostUpdateRequest;
 import com.group.laxyapp.dto.post.request.PostUploadRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,17 +25,26 @@ public class PostService {
             request.getId(),
             request.getTitle(),
             request.getContents(),
-            request.getTags(),
-            request.getPhotoFile(),
+            request.getTag(),
+            request.getPhotofile(),
             LocalDateTime.now()
         );
-
         postRepository.save(post);
     }
 
     @Transactional
-    public void updatePost(PostUpdateRequest request) throws IllegalArgumentException {
+    public void updatePost(PostUploadRequest request) throws IllegalArgumentException {
         request.CheckValidUpload(request.getTitle(), request.getContents());
+        postRepository.save(setUpdatePost(request));
+    }
+
+    @Transactional(readOnly = true)
+    public List<Post> getPosts() {
+        return new ArrayList<>(
+            postRepository.findAll(Sort.by(Direction.DESC, "updatedAt")));
+    }
+
+    private Post setUpdatePost(PostUploadRequest request) {
         Post post = postRepository.findByPostId(request.getPostId())
             .orElseThrow(() -> new IllegalArgumentException(PostState.NON_EXIST_POST.getMessage()));
 
@@ -46,14 +54,7 @@ public class PostService {
         post.setTag(request.getTag());
         post.setPhotofile(request.getPhotofile());
         post.setUpdatedAt(LocalDateTime.now());
-
-        postRepository.save(post);
-    }
-
-    @Transactional(readOnly = true)
-    public List<Post> getPosts() {
-        return new ArrayList<>(
-            postRepository.findAll(Sort.by(Direction.DESC, "updatedAt")));
+        return post;
     }
 
     public void deletePost(Long postId, Long id) {
