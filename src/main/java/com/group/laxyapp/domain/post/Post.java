@@ -1,12 +1,14 @@
 package com.group.laxyapp.domain.post;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,16 +35,25 @@ public class Post {
     @Column(name = "contents", nullable = false)
     private String contents;
 
-    @Column(name = "tag", length = 255)
-    private String tag;
+    @Convert(converter = StringListConverter.class)
+    @Column(name = "tag", columnDefinition = "JSON")
+    private List<String> tag;
 
-    @Column(name = "photofile", length = 255)
-    private String photofile;
+    @Convert(converter = StringListConverter.class)
+    @Column(name = "photofile", columnDefinition = "JSON")
+    private List<String> photofile;
 
     @Column(name = "updated_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime updatedAt;
 
-    public Post(Long id, String title, String contents, String tag, String photofile, LocalDateTime updatedAt) {
+    @Column(name = "likes", columnDefinition = "BIGINT DEFAULT 0")
+    private Long likes = 0L;
+
+    @Column(name = "viewed", columnDefinition = "BIGINT DEFAULT 0")
+    private Long viewed = 0L;
+
+    public Post(Long id, String title, String contents, List<String> tag, List<String> photofile
+        , LocalDateTime updatedAt) {
         this.id = id;
         this.title = title;
         this.contents = contents;
