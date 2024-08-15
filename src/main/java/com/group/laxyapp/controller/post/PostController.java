@@ -1,6 +1,7 @@
 package com.group.laxyapp.controller.post;
 
 
+import com.group.laxyapp.controller.validator.PostValidator;
 import com.group.laxyapp.domain.enums.PostState;
 import com.group.laxyapp.domain.post.Post;
 import com.group.laxyapp.dto.post.request.PostUploadRequest;
@@ -32,11 +33,12 @@ public class PostController {
     @ResponseBody
     public ResponseEntity<String> uploadPost(@RequestBody PostUploadRequest updateRequest) {
         try {
-            postService.uploadPost(updateRequest);
-            return ResponseEntity.ok(PostState.SUCCESS_UPLOAD.getMessage());
+            PostValidator.CheckValidUpload(updateRequest);
         } catch (IllegalArgumentException exception) {
             return ResponseEntity.badRequest().body(exception.getMessage());
         }
+        postService.uploadPost(updateRequest);
+        return ResponseEntity.ok(PostState.SUCCESS_UPLOAD.getMessage());
     }
 
     @PutMapping("/post")
@@ -44,11 +46,12 @@ public class PostController {
     public ResponseEntity<String> updatePost(@RequestParam(name = "post_id") Long postId,
         @RequestBody PostUploadRequest updateRequest) {
         try {
-            postService.updatePost(postId, updateRequest);
-            return ResponseEntity.ok(PostState.SUCCESS_UPDATE.getMessage());
+            PostValidator.CheckValidUpload(updateRequest);
         } catch (IllegalArgumentException exception) {
             return ResponseEntity.badRequest().body(exception.getMessage());
         }
+        postService.updatePost(postId, updateRequest);
+        return ResponseEntity.ok(PostState.SUCCESS_UPDATE.getMessage());
     }
 
     // TODO: DELETE MAPPING 작성 중 오류 발생으로 PUT MAPPING REQUEST PARAM 수정

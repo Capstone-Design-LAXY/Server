@@ -34,7 +34,6 @@ public class PostService {
 
     @Transactional
     public void updatePost(Long postId, PostUploadRequest request) {
-        request.CheckValidUpload(request.getTitle(), request.getContents());
         postRepository.save(setUpdatePost(postId, request));
     }
 
