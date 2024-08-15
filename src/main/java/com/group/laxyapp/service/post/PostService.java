@@ -33,9 +33,9 @@ public class PostService {
     }
 
     @Transactional
-    public void updatePost(PostUploadRequest request) throws IllegalArgumentException {
+    public void updatePost(Long postId, PostUploadRequest request) {
         request.CheckValidUpload(request.getTitle(), request.getContents());
-        postRepository.save(setUpdatePost(request));
+        postRepository.save(setUpdatePost(postId, request));
     }
 
     @Transactional(readOnly = true)
@@ -44,11 +44,17 @@ public class PostService {
             postRepository.findAll(Sort.by(Direction.DESC, "updatedAt")));
     }
 
-    private Post setUpdatePost(PostUploadRequest request) {
-        Post post = postRepository.findByPostId(request.getPostId())
+    @Transactional
+    public void deletePost(Long postId, Long id) {
+        Post post = postRepository.findByPostId(postId)
+            .orElseThrow(() -> new IllegalArgumentException(PostState.NON_EXIST_POST.getMessage()));
+        postRepository.delete(post);
+    }
+
+    private Post setUpdatePost(Long postId, PostUploadRequest request) {
+        Post post = postRepository.findByPostId(postId)
             .orElseThrow(() -> new IllegalArgumentException(PostState.NON_EXIST_POST.getMessage()));
 
-        post.setId(request.getId());
         post.setTitle(request.getTitle());
         post.setContents(request.getContents());
         post.setTag(request.getTag());
@@ -56,8 +62,4 @@ public class PostService {
         post.setUpdatedAt(LocalDateTime.now());
         return post;
     }
-
-    public void deletePost(Long postId, Long id) {
-    }
-
 }

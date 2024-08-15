@@ -1,25 +1,19 @@
 package com.group.laxyapp.dto.post.request;
 
+import java.time.LocalDateTime;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
 public class PostUploadRequest {
-
+    private Long postId;
     private Long id;
     private String title;
     private String contents;
-    private String tags;
-    private String photoFile;
+    private String tag;
+    private String photofile;
+    private LocalDateTime updatedAt;
 
-    public PostUploadRequest(Long id, String title, String contents, String tags, String photoFile) {
+    public void CheckValidUpload(String title, String contents) {
         Validator.checkValidUpload(title, contents);
-
-        this.id = id;
-        this.title = title;
-        this.contents = contents;
-        this.tags = tags;
-        this.photoFile = photoFile;
     }
 }
