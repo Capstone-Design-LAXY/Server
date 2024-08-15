@@ -27,8 +27,8 @@ public class PostController {
 
     @GetMapping("/post")
     @ResponseBody
-    public List<PostResponse> getPosts( ) {
-        return postService.getPosts();
+    public ResponseEntity<List<PostResponse>> getPosts( ) {
+        return ResponseEntity.ok(postService.getPosts());
     }
 
     @GetMapping("/post/{post_id}")
