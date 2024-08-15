@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -49,9 +48,9 @@ public class PostController {
         return ResponseEntity.ok(PostState.SUCCESS_UPLOAD.getMessage());
     }
 
-    @PutMapping("/post")
+    @PutMapping("/post/{post_id}")
     @ResponseBody
-    public ResponseEntity<String> updatePost(@RequestParam(name = "post_id") Long postId,
+    public ResponseEntity<String> updatePost(@PathVariable("post_id") Long postId,
         @RequestBody PostUploadRequest updateRequest) {
         try {
             PostValidator.CheckValidUpload(updateRequest);
@@ -62,9 +61,9 @@ public class PostController {
         return ResponseEntity.ok(PostState.SUCCESS_UPDATE.getMessage());
     }
 
-    @DeleteMapping("/post")
+    @DeleteMapping("/post/{post_id}")
     @ResponseBody
-    public ResponseEntity<String> deletePost(@RequestParam("post_id")Long postId) {
+    public ResponseEntity<String> deletePost(@PathVariable("post_id")Long postId) {
         try {
             postService.deletePost(postId);
             return ResponseEntity.ok(PostState.SUCCESS_DELETE.getMessage());
