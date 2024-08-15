@@ -3,13 +3,14 @@ package com.group.laxyapp.controller.post;
 
 import com.group.laxyapp.controller.validator.PostValidator;
 import com.group.laxyapp.domain.enums.PostState;
-import com.group.laxyapp.domain.post.Post;
 import com.group.laxyapp.dto.post.request.PostUploadRequest;
+import com.group.laxyapp.dto.post.response.PostResponse;
 import com.group.laxyapp.service.post.PostService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -25,7 +26,7 @@ public class PostController {
 
     @GetMapping("/post")
     @ResponseBody
-    public List<Post> getPosts( ) {
+    public List<PostResponse> getPosts( ) {
         return postService.getPosts();
     }
 
@@ -54,17 +55,14 @@ public class PostController {
         return ResponseEntity.ok(PostState.SUCCESS_UPDATE.getMessage());
     }
 
-    // TODO: DELETE MAPPING 작성 중 오류 발생으로 PUT MAPPING REQUEST PARAM 수정
-//    @DeleteMapping("/post/?{postId}")
-//    @ResponseBody
-//    public ResponseEntity<String> deletePost(@RequestParam("postId")String postId
-//        , @RequestParam("id")String id) {
-////        try {
-////            postService.deletePost(postId, id);
-////            return ResponseEntity.ok(PostState.SUCCESS_DELETE.getMessage());
-////        } catch (IllegalArgumentException exception) {
-////            return ResponseEntity.badRequest().body(exception.getMessage());
-////        }
-//        return ResponseEntity.ok(PostState.SUCCESS_DELETE.getMessage());
-//    }
+    @DeleteMapping("/post")
+    @ResponseBody
+    public ResponseEntity<String> deletePost(@RequestParam("post_id")Long postId) {
+        try {
+            postService.deletePost(postId);
+            return ResponseEntity.ok(PostState.SUCCESS_DELETE.getMessage());
+        } catch (IllegalArgumentException exception) {
+            return ResponseEntity.badRequest().body(exception.getMessage());
+        }
+    }
 }

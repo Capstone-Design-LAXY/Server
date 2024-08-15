@@ -4,10 +4,11 @@ import com.group.laxyapp.domain.enums.PostState;
 import com.group.laxyapp.domain.post.Post;
 import com.group.laxyapp.domain.post.PostRepository;
 import com.group.laxyapp.dto.post.request.PostUploadRequest;
+import com.group.laxyapp.dto.post.response.PostResponse;
+import java.util.stream.Collectors;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -38,13 +39,13 @@ public class PostService {
     }
 
     @Transactional(readOnly = true)
-    public List<Post> getPosts() {
-        return new ArrayList<>(
-            postRepository.findAll(Sort.by(Direction.DESC, "updatedAt")));
+    public List<PostResponse> getPosts() {
+        List<Post> posts = postRepository.findAll(Sort.by(Direction.DESC, "updatedAt"));
+        return posts.stream().map(PostResponse::new).collect(Collectors.toList());
     }
 
     @Transactional
-    public void deletePost(Long postId, Long id) {
+    public void deletePost(Long postId) {
         Post post = postRepository.findByPostId(postId)
             .orElseThrow(() -> new IllegalArgumentException(PostState.NON_EXIST_POST.getMessage()));
         postRepository.delete(post);

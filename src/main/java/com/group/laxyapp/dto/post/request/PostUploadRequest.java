@@ -12,6 +12,4 @@ public class PostUploadRequest {
     private String tag;
     private String photofile;
     private LocalDateTime updatedAt;
-
-
 }
