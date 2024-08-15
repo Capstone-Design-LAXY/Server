@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +29,12 @@ public class PostController {
     @ResponseBody
     public List<PostResponse> getPosts( ) {
         return postService.getPosts();
+    }
+
+    @GetMapping("/post/{post_id}")
+    @ResponseBody
+    public ResponseEntity<PostResponse> getPost(@PathVariable("post_id") Long postId) {
+        return ResponseEntity.ok(postService.getPost(postId));
     }
 
     @PostMapping("/post")

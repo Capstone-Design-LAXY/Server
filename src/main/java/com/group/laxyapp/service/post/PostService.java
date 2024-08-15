@@ -44,16 +44,19 @@ public class PostService {
         return posts.stream().map(PostResponse::new).collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
+    public PostResponse getPost(Long postId) {
+        return new PostResponse(findPostById(postId));
+    }
+
     @Transactional
     public void deletePost(Long postId) {
-        Post post = postRepository.findByPostId(postId)
-            .orElseThrow(() -> new IllegalArgumentException(PostState.NON_EXIST_POST.getMessage()));
+        Post post = findPostById(postId);
         postRepository.delete(post);
     }
 
     private Post setUpdatePost(Long postId, PostUploadRequest request) {
-        Post post = postRepository.findByPostId(postId)
-            .orElseThrow(() -> new IllegalArgumentException(PostState.NON_EXIST_POST.getMessage()));
+        Post post = findPostById(postId);
 
         post.setTitle(request.getTitle());
         post.setContents(request.getContents());
@@ -61,5 +64,10 @@ public class PostService {
         post.setPhotofile(request.getPhotofile());
         post.setUpdatedAt(LocalDateTime.now());
         return post;
+    }
+
+    private Post findPostById(Long postId) {
+        return postRepository.findByPostId(postId)
+            .orElseThrow(() -> new IllegalArgumentException(PostState.NON_EXIST_POST.getMessage()));
     }
 }
