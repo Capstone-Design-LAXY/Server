@@ -1,9 +1,6 @@
 package com.group.laxyapp.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,9 +13,14 @@ public class RefreshToken {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long token_id;
 
-    private Long id;
+    @Column(name = "refresh_token", nullable = false, length = 255)
     private String token;
+
+    @Column(name = "email", nullable = false, length = 250)
     private String email;
+
+    @Column(name = "expiry_date", nullable = false)
     private Date expiryDate;
 }

@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class UserUpdateRequest {
 
-    private long id;
+    private Long user_id;
     private String nickname;
     private String password;
     private LocalDate birth;
@@ -13,19 +13,31 @@ public class UserUpdateRequest {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public long getId() {
-        return id;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public String getNickname() { return nickname; }
+    public String getNickname() {
+        return nickname;
+    }
 
-    public String getGender() { return gender; }
+    public String getPassword() {
+        return password;
+    }
 
-    public String getPassword() { return password; }
+    public LocalDate getBirth() {
+        return birth;
+    }
 
-    public LocalDate getBirth() { return birth; }
+    public String getGender() {
+        return gender;
+    }
 
-    public LocalDateTime getCreatedAt() { return createdAt; }
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
-    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
 }

@@ -20,9 +20,9 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long user_id;
 
-    @Column(name = "nickname", nullable = false, length = 20)
+    @Column(name = "nick_name", nullable = false, length = 20)
     private String nickname;
 
     @Column(name = "gender", length = 1)
@@ -31,10 +31,10 @@ public class User implements UserDetails {
     @Column(name = "email", nullable = false, length = 100)
     private String email;
 
-    @Column(name = "password", nullable = false, length = 60)
+    @Column(name = "pass_word", nullable = false, length = 60)
     private String password; // 비밀번호 암호화 길이를 고려하여 60으로 설정
 
-    @Column(name = "birth")
+    @Column(name = "birth", nullable = false)
     private LocalDate birth;
 
     @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
