@@ -41,7 +41,7 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public List<PostResponse> getPosts() {
-        List<Post> posts = postRepository.findAll(Sort.by(Direction.DESC, "updatedAt"));
+        List<Post> posts = postRepository.findAll(Sort.by(Direction.DESC, "createdAt"));
         return posts.stream().map(PostResponse::new).collect(Collectors.toList());
     }
 
