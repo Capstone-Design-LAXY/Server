@@ -65,4 +65,9 @@ public class Post {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
+    public Post increaseViewed() {
+        this.viewed++;
+        return this;
+    }
 }

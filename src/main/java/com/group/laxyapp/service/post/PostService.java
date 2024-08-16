@@ -47,7 +47,7 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public PostResponse getPost(Long postId) {
-        return new PostResponse(findPostById(postId));
+        return new PostResponse(findPostById(postId).increaseViewed());
     }
 
     @Transactional
