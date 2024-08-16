@@ -38,27 +38,25 @@ public class PostController {
 
     @PostMapping("/post")
     @ResponseBody
-    public ResponseEntity<String> uploadPost(@RequestBody PostUploadRequest updateRequest) {
+    public ResponseEntity<?> uploadPost(@RequestBody PostUploadRequest updateRequest) {
         try {
             PostValidator.CheckValidUpload(updateRequest);
+            return ResponseEntity.ok(postService.uploadPost(updateRequest));
         } catch (IllegalArgumentException exception) {
             return ResponseEntity.badRequest().body(exception.getMessage());
         }
-        postService.uploadPost(updateRequest);
-        return ResponseEntity.ok(PostState.SUCCESS_UPLOAD.getMessage());
     }
 
     @PutMapping("/post/{post_id}")
     @ResponseBody
-    public ResponseEntity<String> updatePost(@PathVariable("post_id") Long postId,
+    public ResponseEntity<?> updatePost(@PathVariable("post_id") Long postId,
         @RequestBody PostUploadRequest updateRequest) {
         try {
             PostValidator.CheckValidUpload(updateRequest);
+            return ResponseEntity.ok(postService.updatePost(postId, updateRequest));
         } catch (IllegalArgumentException exception) {
             return ResponseEntity.badRequest().body(exception.getMessage());
         }
-        postService.updatePost(postId, updateRequest);
-        return ResponseEntity.ok(PostState.SUCCESS_UPDATE.getMessage());
     }
 
     @DeleteMapping("/post/{post_id}")

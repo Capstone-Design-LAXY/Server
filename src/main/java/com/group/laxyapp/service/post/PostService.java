@@ -21,7 +21,7 @@ public class PostService {
     private final PostRepository postRepository;
 
     @Transactional
-    public void uploadPost(PostUploadRequest request) {
+    public PostResponse uploadPost(PostUploadRequest request) {
         Post post = new Post(
             request.getUserId(),
             request.getTitle(),
@@ -31,12 +31,12 @@ public class PostService {
             LocalDateTime.now(),
             LocalDateTime.now()
         );
-        postRepository.save(post);
+        return new PostResponse(postRepository.save(post));
     }
 
     @Transactional
-    public void updatePost(Long postId, PostUploadRequest request) {
-        postRepository.save(setUpdatePost(postId, request));
+    public PostResponse updatePost(Long postId, PostUploadRequest request) {
+        return new PostResponse(postRepository.save(setUpdatePost(postId, request)));
     }
 
     @Transactional(readOnly = true)
