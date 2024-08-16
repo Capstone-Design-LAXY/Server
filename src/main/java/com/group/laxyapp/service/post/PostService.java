@@ -3,8 +3,8 @@ package com.group.laxyapp.service.post;
 import com.group.laxyapp.domain.enums.PostState;
 import com.group.laxyapp.domain.post.Post;
 import com.group.laxyapp.domain.post.PostRepository;
-import com.group.laxyapp.dto.post.request.PostUploadRequest;
-import com.group.laxyapp.dto.post.response.PostResponse;
+import com.group.laxyapp.dto.post.PostUploadRequest;
+import com.group.laxyapp.dto.post.PostResponse;
 import java.util.stream.Collectors;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,11 +23,12 @@ public class PostService {
     @Transactional
     public void uploadPost(PostUploadRequest request) {
         Post post = new Post(
-            request.getId(),
+            request.getUserId(),
             request.getTitle(),
             request.getContents(),
             request.getTag(),
-            request.getPhotofile(),
+            request.getPhotoFile(),
+            LocalDateTime.now(),
             LocalDateTime.now()
         );
         postRepository.save(post);
@@ -61,7 +62,7 @@ public class PostService {
         post.setTitle(request.getTitle());
         post.setContents(request.getContents());
         post.setTag(request.getTag());
-        post.setPhotofile(request.getPhotofile());
+        post.setPhotoFile(request.getPhotoFile());
         post.setUpdatedAt(LocalDateTime.now());
         return post;
     }

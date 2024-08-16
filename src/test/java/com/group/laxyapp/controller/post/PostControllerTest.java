@@ -15,7 +15,7 @@ class PostControllerTest {
     public void uploadContentsBlank() {
         try {
             new Post(1L,"title", "", Collections.singletonList("tag"),
-                Collections.singletonList("photofile"), LocalDateTime.now());
+                Collections.singletonList("photofile"), LocalDateTime.now(), LocalDateTime.now());
         } catch (IllegalArgumentException exception) {
             Assertions.assertEquals(exception.getMessage(), PostState.NULL_CONTENT.getMessage());
         }
@@ -26,7 +26,7 @@ class PostControllerTest {
     public void uploadTitleBlank() {
         try {
             new Post(1L, "", "content", Collections.singletonList("tag"),
-                Collections.singletonList("photofile"),LocalDateTime.now());
+                Collections.singletonList("photofile"),LocalDateTime.now(), LocalDateTime.now());
         } catch (IllegalArgumentException exception) {
             Assertions.assertEquals(exception.getMessage(), PostState.NULL_TITLE.getMessage());
         }

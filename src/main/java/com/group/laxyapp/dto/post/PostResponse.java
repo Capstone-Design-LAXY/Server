@@ -1,4 +1,4 @@
-package com.group.laxyapp.dto.post.response;
+package com.group.laxyapp.dto.post;
 
 
 import com.group.laxyapp.domain.post.Post;
@@ -7,24 +7,27 @@ import java.util.List;
 
 public class PostResponse {
     public final Long postId;
-    public final Long id;
+    public final Long userId;
     public final String title;
     public final String contents;
     public final List<String> tag;
-    public final List<String> photofile;
+    public final List<String> photoFile;
+
+    public final LocalDateTime createdAt;
     public final LocalDateTime updatedAt;
     public final Long likes;
     public final Long viewed;
 
     public PostResponse(Post post) {
         this.postId = post.getPostId();
-        this.id = post.getId();
+        this.userId = post.getUserId();
         this.title = post.getTitle();
         this.contents = post.getContents();
         this.tag = post.getTag();
-        this.photofile = post.getPhotofile();
+        this.photoFile = post.getPhotoFile();
+        this.createdAt = post.getCreatedAt();
         this.updatedAt = post.getUpdatedAt();
         this.likes = post.getLikes();
-        this.viewed = post.getLikes();
+        this.viewed = post.getViewed();
     }
 }

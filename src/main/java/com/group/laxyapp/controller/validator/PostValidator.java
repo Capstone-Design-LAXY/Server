@@ -1,7 +1,7 @@
 package com.group.laxyapp.controller.validator;
 
 import com.group.laxyapp.domain.enums.PostState;
-import com.group.laxyapp.dto.post.request.PostUploadRequest;
+import com.group.laxyapp.dto.post.PostUploadRequest;
 
 public class PostValidator {
 

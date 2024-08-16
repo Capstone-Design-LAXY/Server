@@ -26,8 +26,8 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
 
-    @Column(name = "id", nullable = false, length = 255)
-    private Long id;
+    @Column(name = "user_id", nullable = false, length = 255)
+    private Long userId;
 
     @Column(name = "title", nullable = false, length = 255)
     private String title;
@@ -40,8 +40,11 @@ public class Post {
     private List<String> tag;
 
     @Convert(converter = StringListConverter.class)
-    @Column(name = "photofile", columnDefinition = "JSON")
-    private List<String> photofile;
+    @Column(name = "photo_file", columnDefinition = "JSON")
+    private List<String> photoFile;
+
+    @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime createdAt;
 
     @Column(name = "updated_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime updatedAt;
@@ -52,13 +55,14 @@ public class Post {
     @Column(name = "viewed", columnDefinition = "BIGINT DEFAULT 0")
     private Long viewed = 0L;
 
-    public Post(Long id, String title, String contents, List<String> tag, List<String> photofile
-        , LocalDateTime updatedAt) {
-        this.id = id;
+    public Post(Long userId, String title, String contents, List<String> tag, List<String> photoFile
+        ,LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.userId = userId;
         this.title = title;
         this.contents = contents;
         this.tag = tag;
-        this.photofile = photofile;
+        this.photoFile = photoFile;
+        this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 }

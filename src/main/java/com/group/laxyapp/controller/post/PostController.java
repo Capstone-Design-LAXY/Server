@@ -3,8 +3,8 @@ package com.group.laxyapp.controller.post;
 
 import com.group.laxyapp.controller.validator.PostValidator;
 import com.group.laxyapp.domain.enums.PostState;
-import com.group.laxyapp.dto.post.request.PostUploadRequest;
-import com.group.laxyapp.dto.post.response.PostResponse;
+import com.group.laxyapp.dto.post.PostUploadRequest;
+import com.group.laxyapp.dto.post.PostResponse;
 import com.group.laxyapp.service.post.PostService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
