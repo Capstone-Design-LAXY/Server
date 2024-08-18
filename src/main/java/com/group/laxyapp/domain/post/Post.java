@@ -26,10 +26,10 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
 
-    @Column(name = "user_id", nullable = false, length = 255)
+    @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    @Column(name = "title", nullable = false, length = 255)
+    @Column(name = "title", nullable = false)
     private String title;
 
     @Column(name = "contents", nullable = false)
