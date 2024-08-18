@@ -1,17 +1,15 @@
 package com.group.laxyapp.dto;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
-@Builder
 @Getter
-@Setter
-@RequiredArgsConstructor
+@Builder
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class ErrorResponse {
-    private int status;
     private String code;
+    private String exception;
     private String message;
-
 }

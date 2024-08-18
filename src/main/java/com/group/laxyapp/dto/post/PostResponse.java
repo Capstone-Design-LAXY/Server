@@ -5,6 +5,7 @@ import com.group.laxyapp.domain.post.Post;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 public class PostResponse {
     public final Long postId;
     public final Long userId;

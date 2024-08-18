@@ -1,8 +1,6 @@
 package com.group.laxyapp.controller.post;
 
 
-import com.group.laxyapp.controller.validator.PostValidator;
-import com.group.laxyapp.domain.enums.PostState;
 import com.group.laxyapp.dto.post.PostUploadRequest;
 import com.group.laxyapp.dto.post.PostResponse;
 import com.group.laxyapp.service.post.PostService;
@@ -38,35 +36,20 @@ public class PostController {
 
     @PostMapping("/post")
     @ResponseBody
-    public ResponseEntity<?> uploadPost(@RequestBody PostUploadRequest updateRequest) {
-        try {
-            PostValidator.CheckValidUpload(updateRequest);
-            return ResponseEntity.ok(postService.uploadPost(updateRequest));
-        } catch (IllegalArgumentException exception) {
-            return ResponseEntity.badRequest().body(exception.getMessage());
-        }
+    public ResponseEntity<PostResponse> uploadPost(@RequestBody PostUploadRequest updateRequest) {
+        return ResponseEntity.ok(postService.uploadPost(updateRequest));
     }
 
     @PutMapping("/post/{post_id}")
     @ResponseBody
     public ResponseEntity<?> updatePost(@PathVariable("post_id") Long postId,
         @RequestBody PostUploadRequest updateRequest) {
-        try {
-            PostValidator.CheckValidUpload(updateRequest);
             return ResponseEntity.ok(postService.updatePost(postId, updateRequest));
-        } catch (IllegalArgumentException exception) {
-            return ResponseEntity.badRequest().body(exception.getMessage());
-        }
     }
 
     @DeleteMapping("/post/{post_id}")
     @ResponseBody
-    public ResponseEntity<String> deletePost(@PathVariable("post_id")Long postId) {
-        try {
+    public void deletePost(@PathVariable("post_id")Long postId) {
             postService.deletePost(postId);
-            return ResponseEntity.ok(PostState.SUCCESS_DELETE.getMessage());
-        } catch (IllegalArgumentException exception) {
-            return ResponseEntity.badRequest().body(exception.getMessage());
-        }
     }
 }

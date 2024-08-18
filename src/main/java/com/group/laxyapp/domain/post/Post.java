@@ -10,13 +10,17 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+@Builder(toBuilder = true)
 @Entity
 @Getter
-@Setter
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "post")
 public class Post {
@@ -43,27 +47,38 @@ public class Post {
     @Column(name = "photo_file", columnDefinition = "JSON")
     private List<String> photoFile;
 
-    @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
     @Column(name = "likes", columnDefinition = "BIGINT DEFAULT 0")
-    private Long likes = 0L;
+    private Long likes;
 
     @Column(name = "viewed", columnDefinition = "BIGINT DEFAULT 0")
-    private Long viewed = 0L;
+    private Long viewed;
 
-    public Post(Long userId, String title, String contents, List<String> tag, List<String> photoFile
-        ,LocalDateTime createdAt, LocalDateTime updatedAt) {
+    @Builder
+    public Post(Long userId, String title, String contents, List<String> tag, List<String> photoFile) {
         this.userId = userId;
         this.title = title;
         this.contents = contents;
         this.tag = tag;
         this.photoFile = photoFile;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+    }
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+        this.likes = 0L;
+        this.viewed = 0L;
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 
     public Post increaseViewed() {

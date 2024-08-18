@@ -1,7 +1,7 @@
 package com.group.laxyapp.controller.Exception;
 
 import com.group.laxyapp.dto.ErrorResponse;
-import javax.naming.AuthenticationException;
+import javax.security.sasl.AuthenticationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,20 +13,21 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(AuthenticationException.class)
-    public ResponseEntity<Object> handleAuthenticationException(IllegalArgumentException exception) {
+    public ResponseEntity<Object> handleAuthenticationException(AuthenticationException exception) {
         return handleExceptionInternal(CommonErrorCode.INVALID_PARAMETER
+            , exception.getMessage()
             , ErrorMessage.UNAUTHORIZED.getMessage());
     }
 
-    private ResponseEntity<Object> handleExceptionInternal(ErrorCode errorCode, String message) {
+    private ResponseEntity<Object> handleExceptionInternal(ErrorCode errorCode, String exception, String message) {
         return ResponseEntity.status(errorCode.getHttpStatus())
-            .body(makeErrorResponse(errorCode, message));
+            .body(makeErrorResponse(errorCode, exception, message));
     }
 
-    private ErrorResponse makeErrorResponse(ErrorCode errorCode, String message) {
+    private ErrorResponse makeErrorResponse(ErrorCode errorCode, String exception, String message) {
         return ErrorResponse.builder()
             .code(errorCode.name())
-            .message(errorCode.getHttpStatus().toString())
+            .exception(exception)
             .message(message)
             .build();
     }

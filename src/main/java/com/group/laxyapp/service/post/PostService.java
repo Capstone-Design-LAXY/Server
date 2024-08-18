@@ -1,6 +1,5 @@
 package com.group.laxyapp.service.post;
 
-import com.group.laxyapp.domain.enums.PostState;
 import com.group.laxyapp.domain.post.Post;
 import com.group.laxyapp.domain.post.PostRepository;
 import com.group.laxyapp.dto.post.PostUploadRequest;
@@ -22,15 +21,12 @@ public class PostService {
 
     @Transactional
     public PostResponse uploadPost(PostUploadRequest request) {
-        Post post = new Post(
-            request.getUserId(),
-            request.getTitle(),
-            request.getContents(),
-            request.getTag(),
-            request.getPhotoFile(),
-            LocalDateTime.now(),
-            LocalDateTime.now()
-        );
+        Post post = Post.builder()
+            .userId(request.getUserId())
+            .title(request.getTitle())
+            .contents(request.getContents())
+            .tag(request.getTag())
+            .photoFile(request.getPhotoFile()).build();
         return new PostResponse(postRepository.save(post));
     }
 
@@ -41,8 +37,9 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public List<PostResponse> getPosts() {
-        List<Post> posts = postRepository.findAll(Sort.by(Direction.DESC, "createdAt"));
-        return posts.stream().map(PostResponse::new).collect(Collectors.toList());
+        return postRepository.findAll(Sort.by(Direction.DESC, "createdAt"))
+            .stream().map(PostResponse::new)
+            .collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
@@ -52,23 +49,21 @@ public class PostService {
 
     @Transactional
     public void deletePost(Long postId) {
-        Post post = findPostById(postId);
-        postRepository.delete(post);
+        postRepository.delete(findPostById(postId));
     }
 
     private Post setUpdatePost(Long postId, PostUploadRequest request) {
-        Post post = findPostById(postId);
-
-        post.setTitle(request.getTitle());
-        post.setContents(request.getContents());
-        post.setTag(request.getTag());
-        post.setPhotoFile(request.getPhotoFile());
-        post.setUpdatedAt(LocalDateTime.now());
-        return post;
+        return findPostById(postId).toBuilder()
+            .title(request.getTitle())
+            .contents(request.getContents())
+            .tag(request.getTag())
+            .photoFile(request.getPhotoFile())
+            .updatedAt(LocalDateTime.now())
+            .build();
     }
 
     private Post findPostById(Long postId) {
         return postRepository.findByPostId(postId)
-            .orElseThrow(() -> new IllegalArgumentException(PostState.NON_EXIST_POST.getMessage()));
+            .orElseThrow(IllegalArgumentException::new);
     }
 }

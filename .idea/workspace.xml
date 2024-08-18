@@ -4,27 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="fix: 게시글 상세 시, Post의 viewed(조회수) 값 증가">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/Exception/CommonErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/Exception/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/Exception/ErrorMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/Exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/Exception/RestApiException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/ErrorResponse.java" afterDir="false" />
+    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="fix: state 401 권한 예외 처리 과정 중 ErrorCode field 값 수정">
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/post/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/post/PostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/validator/PostValidator.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/post/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/post/Post.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/comment/CommentRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/comment/CommentRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/post/PostResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/post/PostResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/post/PostUploadRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/post/PostUploadRequest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/post/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/post/PostService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PostController.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PostService.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/validator/PostValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/Exception/CommonErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/Exception/CommonErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/Exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/Exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/Exception/RestApiException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/Exception/RestApiException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/enums/PostState.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/post/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/post/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/comment/CommentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/comment/CommentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/post/PostResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/post/PostResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/post/PostUploadRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/post/PostUploadRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/group/laxyapp/controller/post/PostControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/group/laxyapp/controller/post/PostControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +101,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -366,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1723774426441</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="feat: exception custom handler 기능 구현">
+      <created>1723955947164</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1723955947164</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -381,8 +399,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test: 게시글 내용이 공백이라면 예외 발생" />
-    <MESSAGE value="test: 게시글 제목이 공백이라면 예외 발생" />
     <MESSAGE value="fix: &quot;/post&quot; state 401 예외 처리 후 state 상태 오류 수정" />
     <MESSAGE value="fix: &quot;/post&quot; 게시글 수정을 위한 &quot;updatedAt&quot;, &quot;postId&quot; column 추가" />
     <MESSAGE value="refactor: 게시글 제목,내용 공백 예외 발생 함수 분리" />
@@ -406,7 +422,9 @@
     <MESSAGE value="fix: 게시글 전체 조회 시, 'createdAt' 순으로 정렬되도록 수정" />
     <MESSAGE value="fix: 게시글 등록/수정 후 PostResponse 객체 return" />
     <MESSAGE value="fix: 게시글 상세 시, Post의 viewed(조회수) 값 증가" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 게시글 상세 시, Post의 viewed(조회수) 값 증가" />
+    <MESSAGE value="feat: exception custom handler 기능 구현" />
+    <MESSAGE value="fix: state 401 권한 예외 처리 과정 중 ErrorCode field 값 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: state 401 권한 예외 처리 과정 중 ErrorCode field 값 수정" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
