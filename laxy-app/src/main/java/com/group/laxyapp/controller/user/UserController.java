@@ -102,16 +102,16 @@ public class UserController {
         return userService.isEmailDuplicate(email);
     }
 
-    @PostMapping("/logout")
-    @ResponseBody
-    public ResponseEntity<String> logout(HttpServletRequest request, @RequestParam("refreshToken") String refreshToken) {
-        // 리프레시 토큰 삭제
-        authService.logout(refreshToken);
-
-        // 세션 무효화
-        new SecurityContextLogoutHandler().logout(request, null,
-                SecurityContextHolder.getContext().getAuthentication());
-
-        return ResponseEntity.ok("로그아웃이 완료되었습니다.");
-    }
+// @PostMapping("/logout")
+// @ResponseBody
+// public ResponseEntity<String> logout(HttpServletRequest request, @RequestParam("refreshToken") String refreshToken) {
+//     // 리프레시 토큰 삭제
+//     authService.logout(refreshToken);
+//
+//     // 세션 무효화
+//     new SecurityContextLogoutHandler().logout(request, null,
+//             SecurityContextHolder.getContext().getAuthentication());
+//
+//     return ResponseEntity.ok("로그아웃이 완료되었습니다.");
+// }
 }

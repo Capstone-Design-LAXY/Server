@@ -1,16 +1,13 @@
 package com.group.laxyapp.dto.user.request;
 
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
-@Setter
-@NoArgsConstructor
+@Builder
 public class JoinRequest {
-
-    private String email;
-    private String password;
-    private String passwordCheck;
-    private String nickname;
+    private final String email;
+    private final String password;
+    private final String passwordCheck;
+    private final String nickname;
 }

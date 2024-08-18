@@ -32,13 +32,14 @@ public class AuthService {
 
         // Refresh Token 생성 및 저장
         String refreshToken = tokenProvider.createRefreshToken(email);
-        RefreshToken refreshTokenEntity = new RefreshToken();
-        refreshTokenEntity.setEmail(email);
-        refreshTokenEntity.setToken(refreshToken);
-        refreshTokenEntity.setExpiryDate(new Date(System.currentTimeMillis() + tokenProvider.getRefreshTokenValidityInSeconds() * 1000));
+        RefreshToken refreshTokenEntity = RefreshToken.builder()
+                .email(email)
+                .token(refreshToken)
+                .expiryDate(new Date(System.currentTimeMillis() + tokenProvider.getRefreshTokenValidityInSeconds() * 1000))
+                .build();
         refreshTokenRepository.save(refreshTokenEntity);
 
-        return accessToken; // 또는 accessToken과 refreshToken을 함께 반환할 수 있습니다.
+        return accessToken; // 또는 accessToken과 refreshToken을 함께 반환 가능
     }
 
     public void logout(String refreshToken) {

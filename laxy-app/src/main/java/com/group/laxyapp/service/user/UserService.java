@@ -36,18 +36,22 @@ public class UserService implements UserDetailsService {
             throw new IllegalArgumentException("비밀번호와 확인 비밀번호가 일치하지 않습니다.");
         }
 
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new IllegalArgumentException("이메일이 이미 사용 중입니다: " + request.getEmail());
+        }
+
         String encodedPassword = bCryptPasswordEncoder.encode(request.getPassword());
         logger.info("Encoded Password: " + encodedPassword);
 
-        User user = new User(
-                request.getNickname(),
-                encodedPassword,
-                request.getEmail(),
-                request.getBirth(),
-                request.getGender(),
-                LocalDateTime.now(),
-                LocalDateTime.now()
-        );
+        User user = User.builder()
+                .nickname(request.getNickname())
+                .password(encodedPassword)
+                .email(request.getEmail())
+                .birth(request.getBirth())
+                .gender(request.getGender())
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .build();
 
         logger.info("User created: " + user);
         userRepository.save(user);
@@ -56,8 +60,8 @@ public class UserService implements UserDetailsService {
     @Transactional(readOnly = true)
     public List<UserResponse> getUsers() {
         List<User> users = userRepository.findAll();
-        if (users == null) {
-            throw new IllegalArgumentException();
+        if (users == null || users.isEmpty()) {
+            throw new IllegalArgumentException("사용자 목록이 비어 있습니다.");
         }
         return users.stream()
                 .map(UserResponse::new)
@@ -69,22 +73,25 @@ public class UserService implements UserDetailsService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다: " + email));
 
-        user.setNickname(request.getNickname());
-        user.setGender(request.getGender());
-        user.setBirth(request.getBirth());
+        User updatedUser = user.toBuilder()
+                .nickname(request.getNickname())
+                .gender(request.getGender())
+                .birth(request.getBirth())
+                .updatedAt(LocalDateTime.now())
+                .build();
 
         if (request.getPassword() != null && !request.getPassword().isEmpty()) {
             String encodedPassword = bCryptPasswordEncoder.encode(request.getPassword());
-            user.setPassword(encodedPassword);
+            updatedUser = updatedUser.toBuilder().password(encodedPassword).build();
         }
 
-        userRepository.save(user);
+        userRepository.save(updatedUser);
     }
 
     @Transactional
-    public void deleteUser(String nickname) {
-        User user = userRepository.findByNickname(nickname)
-                .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다: " + nickname));
+    public void deleteUser(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다: " + email));
         userRepository.delete(user);
     }
 

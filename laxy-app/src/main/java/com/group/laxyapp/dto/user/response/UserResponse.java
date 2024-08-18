@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class UserResponse {
-    private long user_id;
+    private long userId;
     private String nickname;
     private String password;
     private String email;
@@ -15,9 +15,9 @@ public class UserResponse {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public UserResponse(long user_id, String nickname, String gender, String email,
+    public UserResponse(long userId, String nickname, String gender, String email,
                         LocalDate birth, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.user_id = user_id;
+        this.userId = userId;
         this.nickname = nickname;
         this.gender = gender;
         this.email = email;
@@ -27,7 +27,7 @@ public class UserResponse {
     }
 
     public UserResponse(User user) {
-        this.user_id = user.getUser_id();
+        this.userId = user.getUserId();
         this.nickname = user.getNickname();
         this.gender = user.getGender();
         this.email = user.getEmail();
@@ -36,8 +36,8 @@ public class UserResponse {
         this.updatedAt = user.getUpdatedAt();
     }
 
-    public long getUser_id() {
-        return user_id;
+    public long getUserId() {
+        return userId;
     }
 
     public String getNickname() {

@@ -38,12 +38,12 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                        .requestMatchers("/", "/auth/**", "/index.html", "/user/login", "/user/delete", "/mypage", "/logout", "/signup", "/user").permitAll()
+                        .requestMatchers("/", "/auth/**", "/index.html", "/user/login", "/user/delete", "/mypage", "/signup", "/user").permitAll()
                         .requestMatchers("/posts/**", "/api/v1/posts/**").hasRole(UserRole.USER.name())
                         .requestMatchers("/admins/**", "/api/v1/admins/**").hasRole(UserRole.ADMIN.name())
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore(new JwtAuthenticationFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class) // 수정된 부분
+                .addFilterBefore(new JwtAuthenticationFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class)
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")
                         .usernameParameter("email")
@@ -52,7 +52,9 @@ public class SecurityConfig {
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login")
+                        .logoutSuccessUrl("/") // 로그아웃 후 메인 페이지로 리다이렉트
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
                 )
                 .exceptionHandling(exceptionHandling -> exceptionHandling
                         .authenticationEntryPoint(unauthorizedEntryPoint)
