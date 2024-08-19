@@ -32,7 +32,7 @@ public class PostController {
     @ResponseBody
     public ResponseEntity<PostResponse> uploadPost(@RequestHeader("Authorization") String token,
                                                    @RequestBody PostUploadRequest request) {
-        return ResponseEntity.ok(postService.uploadPost(token.substring(7), request));
+        return ResponseEntity.ok(postService.uploadPost(token, request));
     }
 
     @PutMapping("/post/{post_id}")
@@ -40,13 +40,20 @@ public class PostController {
     public ResponseEntity<?> updatePost(@RequestHeader("Authorization") String token,
                                         @PathVariable("post_id") Long postId,
                                         @RequestBody PostUploadRequest request) {
-        return ResponseEntity.ok(postService.updatePost(token.substring(7), postId, request));
+        return ResponseEntity.ok(postService.updatePost(token, postId, request));
     }
 
     @DeleteMapping("/post/{post_id}")
     @ResponseBody
     public void deletePost(@RequestHeader("Authorization") String token,
                            @PathVariable("post_id") Long postId) {
-        postService.deletePost(token.substring(7), postId);
+        postService.deletePost(token, postId);
+    }
+
+    @GetMapping("/mypage/post")
+    @ResponseBody
+    public ResponseEntity<List<PostResponse>> getUserPosts(@RequestHeader("Authorization") String token) {
+        Long userId = postService.getUserIdFromToken(token);  // 토큰에서 사용자 ID 추출
+        return ResponseEntity.ok(postService.getPostsByUserId(userId));
     }
 }

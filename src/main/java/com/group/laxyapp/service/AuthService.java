@@ -1,6 +1,8 @@
 package com.group.laxyapp.service;
 
 import com.group.laxyapp.domain.RefreshToken;
+import com.group.laxyapp.domain.user.User;
+import com.group.laxyapp.domain.user.UserRepository;
 import com.group.laxyapp.repository.RefreshTokenRepository;
 import com.group.laxyapp.security.TokenProvider;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +21,7 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final TokenProvider tokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
+    private final UserRepository userRepository;
 
     public String authenticateAndGenerateToken(String email, String password) {
         // 인증 처리
@@ -27,11 +30,16 @@ public class AuthService {
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
+        // 사용자 ID 직접 조회
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        Long userId = user.getUserId();
+
         // Access Token 생성
-        String accessToken = tokenProvider.createToken(email);
+        String accessToken = tokenProvider.createToken(email, userId);
 
         // Refresh Token 생성 및 저장
-        String refreshToken = tokenProvider.createRefreshToken(email);
+        String refreshToken = tokenProvider.createRefreshToken(email, userId);
         RefreshToken refreshTokenEntity = RefreshToken.builder()
                 .email(email)
                 .token(refreshToken)
@@ -39,7 +47,7 @@ public class AuthService {
                 .build();
         refreshTokenRepository.save(refreshTokenEntity);
 
-        return accessToken; // 또는 accessToken과 refreshToken을 함께 반환 가능
+        return accessToken;
     }
 
     public void logout(String refreshToken) {
@@ -54,7 +62,10 @@ public class AuthService {
                     if (token.getExpiryDate().before(new Date())) {
                         throw new RuntimeException("Refresh token expired");
                     }
-                    return tokenProvider.createToken(token.getEmail());
+                    // 사용자 ID를 포함하여 새 액세스 토큰 생성
+                    User user = userRepository.findByEmail(token.getEmail())
+                            .orElseThrow(() -> new RuntimeException("User not found"));
+                    return tokenProvider.createToken(token.getEmail(), user.getUserId());
                 })
                 .orElseThrow(() -> new RuntimeException("Invalid refresh token"));
     }

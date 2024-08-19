@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
-@Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
 @Table(name = "user")
 public class User implements UserDetails {
 
@@ -102,5 +102,9 @@ public class User implements UserDetails {
     public User changePassword(String password) {
         this.password = password;
         return this;
+    }
+
+    public Long getUserId() {
+        return userId;
     }
 }

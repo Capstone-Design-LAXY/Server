@@ -27,8 +27,7 @@ public class PostService {
 
     @Transactional
     public PostResponse uploadPost(String token, PostUploadRequest request) {
-        String username = tokenProvider.getUsername(token);
-        Long userId = convertUsernameToUserId(username);
+        Long userId = getUserIdFromToken(token);
 
         Post post = Post.builder()
                 .userId(userId)
@@ -42,8 +41,7 @@ public class PostService {
 
     @Transactional
     public PostResponse updatePost(String token, Long postId, PostUploadRequest request) {
-        String username = tokenProvider.getUsername(token);
-        Long userId = convertUsernameToUserId(username);
+        Long userId = getUserIdFromToken(token);
 
         // ID로 게시물을 찾음
         Post post = postRepository.findById(postId)
@@ -64,7 +62,6 @@ public class PostService {
         return new PostResponse(postRepository.save(updatedPost));
     }
 
-
     @Transactional(readOnly = true)
     public List<PostResponse> getPosts() {
         return postRepository.findAll(Sort.by(Direction.DESC, "createdAt"))
@@ -79,8 +76,7 @@ public class PostService {
 
     @Transactional
     public void deletePost(String token, Long postId) {
-        String username = tokenProvider.getUsername(token);
-        Long userId = convertUsernameToUserId(username);
+        Long userId = getUserIdFromToken(token);
 
         Post post = findPostById(postId);
 
@@ -89,6 +85,18 @@ public class PostService {
         }
 
         postRepository.delete(post);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostResponse> getPostsByUserId(Long userId) {
+        return postRepository.findByUserId(userId, Sort.by(Sort.Direction.DESC, "createdAt"))
+                .stream().map(PostResponse::new)
+                .collect(Collectors.toList());
+    }
+
+    public Long getUserIdFromToken(String token) {
+        String jwtToken = token.substring(7); // "Bearer "을 제거
+        return tokenProvider.getUserIdFromToken(jwtToken); // JWT에서 사용자 ID 추출
     }
 
     private Post setUpdatePost(Post post, PostUploadRequest request) {
@@ -102,13 +110,7 @@ public class PostService {
     }
 
     private Post findPostById(Long postId) {
-        return postRepository.findByPostId(postId)
+        return postRepository.findById(postId)
                 .orElseThrow(() -> new IllegalArgumentException("게시물을 찾을 수 없습니다."));
-    }
-
-    private Long convertUsernameToUserId(String username) {
-        return userRepository.findByEmail(username)
-                .map(User::getUserId)
-                .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
     }
 }

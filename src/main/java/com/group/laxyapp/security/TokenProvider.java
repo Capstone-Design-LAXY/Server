@@ -24,13 +24,14 @@ public class TokenProvider {
     private final long refreshTokenValidityInSeconds;
 
     public TokenProvider() {
-        this.key = Keys.secretKeyFor(SignatureAlgorithm.HS256); // 안전한 비밀 키 생성
-        this.tokenValidityInSeconds = 3600; // 예: 1시간
-        this.refreshTokenValidityInSeconds = 604800; // 예: 1주일
+        this.key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+        this.tokenValidityInSeconds = 3600; // 1 hour
+        this.refreshTokenValidityInSeconds = 604800; // 1 week
     }
 
-    public String createToken(String email) {
+    public String createToken(String email, Long userId) {
         Claims claims = Jwts.claims().setSubject(email);
+        claims.put("userId", userId);
         Date now = new Date();
         Date validity = new Date(now.getTime() + tokenValidityInSeconds * 1000);
 
@@ -42,8 +43,9 @@ public class TokenProvider {
                 .compact();
     }
 
-    public String createRefreshToken(String email) {
+    public String createRefreshToken(String email, Long userId) {
         Claims claims = Jwts.claims().setSubject(email);
+        claims.put("userId", userId);
         Date now = new Date();
         Date validity = new Date(now.getTime() + refreshTokenValidityInSeconds * 1000);
 
@@ -67,6 +69,11 @@ public class TokenProvider {
         return getClaims(token).getSubject();
     }
 
+    public Long getUserIdFromToken(String token) {
+        Claims claims = getClaims(token);
+        return Long.parseLong(claims.get("userId").toString());
+    }
+
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()
@@ -82,7 +89,7 @@ public class TokenProvider {
     public Authentication getAuthentication(String token) {
         Claims claims = getClaims(token);
         String email = claims.getSubject();
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER"); // 필요한 경우 권한 설정
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");
 
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(email, "", Collections.singleton(authority));
         return new UsernamePasswordAuthenticationToken(userDetails, token, Collections.singleton(authority));

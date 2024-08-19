@@ -22,8 +22,11 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserLoginRequest loginRequest) {
         try {
-            String token = authService.authenticateAndGenerateToken(loginRequest.getEmail(), loginRequest.getPassword());
-            return ResponseEntity.ok(new TokenResponse(token, tokenProvider.createRefreshToken(loginRequest.getEmail())));
+            String accessToken = authService.authenticateAndGenerateToken(loginRequest.getEmail(), loginRequest.getPassword());
+            // 사용자 ID 추출
+            Long userId = tokenProvider.getUserIdFromToken(accessToken);
+            String refreshToken = tokenProvider.createRefreshToken(loginRequest.getEmail(), userId);
+            return ResponseEntity.ok(new TokenResponse(accessToken, refreshToken));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("로그인 실패: " + e.getMessage());
         }
@@ -31,16 +34,23 @@ public class AuthController {
 
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpServletRequest request, @RequestParam("refreshToken") String refreshToken) {
-        authService.logout(refreshToken);
-        new SecurityContextLogoutHandler().logout(request, null, SecurityContextHolder.getContext().getAuthentication());
-        return ResponseEntity.ok("로그아웃이 완료되었습니다.");
+        try {
+            authService.logout(refreshToken);
+            new SecurityContextLogoutHandler().logout(request, null, SecurityContextHolder.getContext().getAuthentication());
+            return ResponseEntity.ok("로그아웃이 완료되었습니다.");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("로그아웃 실패: " + e.getMessage());
+        }
     }
 
     @PostMapping("/refresh")
     public ResponseEntity<?> refreshToken(@RequestParam("refreshToken") String refreshToken) {
         try {
             String newToken = authService.refreshAccessToken(refreshToken);
-            return ResponseEntity.ok(new TokenResponse(newToken, refreshToken));
+            // 사용자 ID 추출
+            Long userId = tokenProvider.getUserIdFromToken(newToken);
+            String newRefreshToken = tokenProvider.createRefreshToken(tokenProvider.getUsername(newToken), userId);
+            return ResponseEntity.ok(new TokenResponse(newToken, newRefreshToken));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("토큰 갱신 실패: " + e.getMessage());
         }
