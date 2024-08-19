@@ -13,16 +13,15 @@ import java.util.List;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "user")
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userId;
 
-    @Column(name = "nickname", nullable = false, length = 20)
+    @Column(name = "nick_name", nullable = false, length = 20)
     private String nickname;
 
     @Column(name = "gender", length = 1)
@@ -31,10 +30,10 @@ public class User implements UserDetails {
     @Column(name = "email", nullable = false, length = 100)
     private String email;
 
-    @Column(name = "password", nullable = false, length = 60)
-    private String password; // 비밀번호 암호화 길이를 고려하여 60으로 설정
+    @Column(name = "pass_word", nullable = false, length = 60)
+    private String password;
 
-    @Column(name = "birth")
+    @Column(name = "birth", nullable = false)
     private LocalDate birth;
 
     @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -43,6 +42,7 @@ public class User implements UserDetails {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Builder(toBuilder = true)
     public User(String nickname, String password, String email, LocalDate birth, String gender,
                 LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.nickname = nickname;
@@ -84,14 +84,6 @@ public class User implements UserDetails {
         return true;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
@@ -102,7 +94,13 @@ public class User implements UserDetails {
         this.updatedAt = LocalDateTime.now();
     }
 
-    public void updateUserInfo(String nickname) {
+    public User updateUserInfo(String nickname) {
         this.nickname = nickname;
+        return this;
+    }
+
+    public User changePassword(String password) {
+        this.password = password;
+        return this;
     }
 }

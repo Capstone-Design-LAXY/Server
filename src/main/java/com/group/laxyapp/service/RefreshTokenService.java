@@ -15,10 +15,11 @@ public class RefreshTokenService {
     private final RefreshTokenRepository refreshTokenRepository;
 
     public RefreshToken createRefreshToken(String email, String token, Date expiryDate) {
-        RefreshToken refreshToken = new RefreshToken();
-        refreshToken.setEmail(email);
-        refreshToken.setToken(token);
-        refreshToken.setExpiryDate(expiryDate);
+        RefreshToken refreshToken = RefreshToken.builder()
+                .email(email)
+                .token(token)
+                .expiryDate(expiryDate)
+                .build();
         return refreshTokenRepository.save(refreshToken);
     }
 
