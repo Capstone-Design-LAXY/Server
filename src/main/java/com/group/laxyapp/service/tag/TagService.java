@@ -31,7 +31,13 @@ public class TagService {
     public void decrementTagsByName(List<String> names) {
         names.forEach(name -> {
             Optional<Tag> tagOptional = tagRepository.findByTagName(name);
-            tagOptional.ifPresent(Tag::decrementCount);
+            tagOptional
+                .map(tag -> {
+                    tag.decrementCount();
+                    return tag;
+                })
+                .filter(tag -> tag.getCount() <= 0)
+                .ifPresent(tagRepository::delete);
         });
     }
 }
