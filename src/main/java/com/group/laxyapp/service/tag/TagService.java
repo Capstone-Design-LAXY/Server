@@ -3,6 +3,7 @@ package com.group.laxyapp.service.tag;
 import com.group.laxyapp.domain.tag.Tag;
 import com.group.laxyapp.domain.tag.TagRepository;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,12 @@ public class TagService {
                 return tag.getTagName();
             })
             .collect(Collectors.toList());
+    }
+
+    public void decrementTagsByName(List<String> names) {
+        names.forEach(name -> {
+            Optional<Tag> tagOptional = tagRepository.findByTagName(name);
+            tagOptional.ifPresent(Tag::decrementCount);
+        });
     }
 }

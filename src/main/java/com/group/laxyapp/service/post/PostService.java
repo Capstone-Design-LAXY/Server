@@ -58,7 +58,7 @@ public class PostService {
         return findPostById(postId).toBuilder()
             .title(request.getTitle())
             .contents(request.getContents())
-            .tag(request.getTag())
+            .tag(updateTag(postId, request))
             .photoFile(request.getPhotoFile())
             .updatedAt(LocalDateTime.now())
             .build();
@@ -67,5 +67,11 @@ public class PostService {
     private Post findPostById(Long postId) {
         return postRepository.findByPostId(postId)
             .orElseThrow(IllegalArgumentException::new);
+    }
+
+    private List<String> updateTag(Long postId, PostUploadRequest request) {
+        postRepository.findByPostId(postId)
+            .ifPresent(post -> TagService.decrementTagsByName(post.getTag()));
+        return TagService.uploadTagByName(request.getTag());
     }
 }

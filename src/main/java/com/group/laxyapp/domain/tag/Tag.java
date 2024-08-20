@@ -53,4 +53,10 @@ public class Tag {
         this.updatedAt = LocalDateTime.now();
         return this;
     }
+
+    public Tag decrementCount() {
+        this.count--;
+        this.updatedAt = LocalDateTime.now();
+        return this;
+    }
 }
