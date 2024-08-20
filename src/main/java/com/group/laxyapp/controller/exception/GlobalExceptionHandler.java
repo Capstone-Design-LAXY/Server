@@ -1,4 +1,4 @@
-package com.group.laxyapp.controller.Exception;
+package com.group.laxyapp.controller.exception;
 
 import com.group.laxyapp.dto.ErrorResponse;
 import javax.security.sasl.AuthenticationException;

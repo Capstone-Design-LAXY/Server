@@ -4,6 +4,7 @@ import com.group.laxyapp.domain.post.Post;
 import com.group.laxyapp.domain.post.PostRepository;
 import com.group.laxyapp.dto.post.PostUploadRequest;
 import com.group.laxyapp.dto.post.PostResponse;
+import com.group.laxyapp.service.tag.TagService;
 import java.util.stream.Collectors;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 public class PostService {
 
     private final PostRepository postRepository;
+    private final TagService TagService;
 
     @Transactional
     public PostResponse uploadPost(PostUploadRequest request) {
@@ -25,7 +27,7 @@ public class PostService {
             .userId(request.getUserId())
             .title(request.getTitle())
             .contents(request.getContents())
-            .tag(request.getTag())
+            .tag(TagService.uploadTagByName(request.getTag()))
             .photoFile(request.getPhotoFile()).build();
         return new PostResponse(postRepository.save(post));
     }
@@ -44,7 +46,7 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public PostResponse getPost(Long postId) {
-        return new PostResponse(findPostById(postId).increaseViewed());
+        return new PostResponse(findPostById(postId).incrementViewed());
     }
 
     @Transactional

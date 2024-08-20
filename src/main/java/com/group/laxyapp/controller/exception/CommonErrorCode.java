@@ -1,4 +1,4 @@
-package com.group.laxyapp.controller.Exception;
+package com.group.laxyapp.controller.exception;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

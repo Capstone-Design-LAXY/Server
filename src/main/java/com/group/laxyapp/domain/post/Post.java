@@ -81,7 +81,7 @@ public class Post {
         this.updatedAt = LocalDateTime.now();
     }
 
-    public Post increaseViewed() {
+    public Post incrementViewed() {
         this.viewed++;
         return this;
     }
