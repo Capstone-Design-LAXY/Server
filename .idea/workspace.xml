@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="feat: 게시글 수정 시, tag DB TABLE 수정 기능 구현" />
+    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="feat: 특정 게시글의 모든 댓글 오래된 순으로 반환하는 기능">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/comment/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/comment/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/comment/CommentResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/comment/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/comment/CommentRequest.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,6 +103,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.group.laxyapp.dto.comment" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -389,7 +399,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="hYe807n" />
+                        <option value="origin/hYe807n" />
                       </list>
                     </value>
                   </entry>
@@ -400,9 +410,23 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/hYe807n" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: &quot;/post&quot; state 201 게시글 수정 성공 구현" />
     <MESSAGE value="feat: 게시글 수정 시 제목, 내용 공백 시 예외 발생" />
     <MESSAGE value="refactor: 게시글 업로드 예외 처리 테스트 함수 네이밍 수정" />
     <MESSAGE value="feat: 모든 게시물 최신순으로 반환하는 기능" />
@@ -427,7 +451,8 @@
     <MESSAGE value="refactor: builder() 적용" />
     <MESSAGE value="feat: 게시글 등록 시, tag DB TABLE 생성 기능 구현" />
     <MESSAGE value="feat: 게시글 수정 시, tag DB TABLE 수정 기능 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 게시글 수정 시, tag DB TABLE 수정 기능 구현" />
+    <MESSAGE value="feat: 특정 게시글의 모든 댓글 오래된 순으로 반환하는 기능" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 특정 게시글의 모든 댓글 오래된 순으로 반환하는 기능" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
