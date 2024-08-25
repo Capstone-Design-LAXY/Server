@@ -22,6 +22,11 @@ public class UserController {
     private final UserService userService;
     private final AuthService authService;
 
+    public UserController(UserService userService, AuthService authService) {
+        this.userService = userService;
+        this.authService = authService;
+    }
+
     @PostMapping("/user")
     @ResponseBody
     public ResponseEntity<String> registUser(@RequestBody UserRegistRequest registRequest) {

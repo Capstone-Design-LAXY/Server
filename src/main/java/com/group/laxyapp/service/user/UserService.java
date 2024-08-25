@@ -24,6 +24,11 @@ public class UserService implements UserDetailsService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private static final Logger logger = Logger.getLogger(UserService.class.getName());
 
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
     @Override
     public User loadUserByUsername(String email) {
         return userRepository.findByEmail(email)

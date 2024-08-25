@@ -7,4 +7,5 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     Optional<Post> findByPostId(Long postId);
 
+    Optional<Post> findByTitleContains(String title);
 }
