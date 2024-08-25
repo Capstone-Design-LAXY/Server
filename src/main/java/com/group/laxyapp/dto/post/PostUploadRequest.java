@@ -8,14 +8,14 @@ import lombok.Getter;
 @Builder
 @Getter
 public class PostUploadRequest {
-    private Long postId;
-    private Long userId;
-    private String title;
-    private String contents;
-    private List<String> tag;
-    private List<String> photoFile;
-    private List<String> createAt;
-    private LocalDateTime updatedAt;
-    private Long likes;
-    private Long viewed;
+    private final Long postId;
+    private final Long userId;
+    private final String title;
+    private final String contents;
+    private final List<String> tag;
+    private final List<String> photoFile;
+    private final List<String> createAt;
+    private final LocalDateTime updatedAt;
+    private final Long likes;
+    private final Long viewed;
 }

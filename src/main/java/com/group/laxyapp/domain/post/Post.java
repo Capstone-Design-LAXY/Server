@@ -14,7 +14,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
 import lombok.NoArgsConstructor;
 
 @Builder(toBuilder = true)
@@ -59,26 +58,12 @@ public class Post {
     @Column(name = "viewed", columnDefinition = "BIGINT DEFAULT 0")
     private Long viewed;
 
-    @Builder
-    public Post(Long userId, String title, String contents, List<String> tag, List<String> photoFile) {
-        this.userId = userId;
-        this.title = title;
-        this.contents = contents;
-        this.tag = tag;
-        this.photoFile = photoFile;
-    }
-
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
         this.likes = 0L;
         this.viewed = 0L;
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        this.updatedAt = LocalDateTime.now();
     }
 
     public Post incrementViewed() {

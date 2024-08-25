@@ -5,15 +5,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+@Builder(toBuilder = true)
 @Getter
-@Setter
+@AllArgsConstructor(access = AccessLevel.PACKAGE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "comment")
@@ -42,14 +46,15 @@ public class Comment {
     @Column(name = "likes", columnDefinition = "BIGINT DEFAULT 0")
     private Long likes;
 
-    public Comment(Long commentId, Long postId, Long userId, String contents, LocalDateTime createdAt
-        , LocalDateTime updatedAt, Long likes) {
-        this.commentId = commentId;
-        this.postId = postId;
-        this.userId = userId;
-        this.contents = contents;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.likes = likes;
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+        this.likes = 0L;
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 }

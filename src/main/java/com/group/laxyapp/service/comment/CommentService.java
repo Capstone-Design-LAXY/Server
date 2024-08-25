@@ -1,7 +1,9 @@
 package com.group.laxyapp.service.comment;
 
+import com.group.laxyapp.domain.comment.Comment;
 import com.group.laxyapp.domain.comment.CommentRepository;
 import com.group.laxyapp.dto.comment.CommentResponse;
+import com.group.laxyapp.dto.comment.CommentUploadRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -22,5 +24,14 @@ public class CommentService {
             .stream().filter(comment -> comment.getPostId().equals(postId))
             .map(CommentResponse::new)
             .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public CommentResponse uploadComment(CommentUploadRequest request, Long postId) {
+        Comment comment = Comment.builder()
+            .postId(postId)
+            .userId(request.getUserId())
+            .contents(request.getContents()).build();
+        return new CommentResponse(commentRepository.save(comment));
     }
 }
