@@ -2,7 +2,7 @@ package com.group.laxyapp.service.post;
 
 import com.group.laxyapp.domain.post.Post;
 import com.group.laxyapp.domain.post.PostRepository;
-import com.group.laxyapp.dto.post.PostUploadRequest;
+import com.group.laxyapp.dto.post.PostRequest;
 import com.group.laxyapp.dto.post.PostResponse;
 import com.group.laxyapp.service.tag.TagService;
 import java.util.stream.Collectors;
@@ -21,7 +21,7 @@ public class PostService {
     private final TagService TagService;
 
     @Transactional
-    public PostResponse uploadPost(PostUploadRequest request) {
+    public PostResponse uploadPost(PostRequest request) {
         Post post = Post.builder()
             .userId(request.getUserId())
             .title(request.getTitle())
@@ -32,7 +32,7 @@ public class PostService {
     }
 
     @Transactional
-    public PostResponse updatePost(Long postId, PostUploadRequest request) {
+    public PostResponse updatePost(Long postId, PostRequest request) {
         return new PostResponse(postRepository.save(setUpdatePost(postId, request)));
     }
 
@@ -53,7 +53,7 @@ public class PostService {
         postRepository.delete(findPostById(postId));
     }
 
-    private Post setUpdatePost(Long postId, PostUploadRequest request) {
+    private Post setUpdatePost(Long postId, PostRequest request) {
         return findPostById(postId).toBuilder()
             .title(request.getTitle())
             .contents(request.getContents())
@@ -67,7 +67,7 @@ public class PostService {
             .orElseThrow(IllegalArgumentException::new);
     }
 
-    private List<String> updateTag(Long postId, PostUploadRequest request) {
+    private List<String> updateTag(Long postId, PostRequest request) {
         postRepository.findByPostId(postId)
             .ifPresent(post -> TagService.decrementTagsByName(post.getTag()));
         return TagService.uploadTagByName(request.getTag());

@@ -5,7 +5,8 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class CommentUploadRequest {
+public class CommentRequest {
+    private final Long commentId;
     private final Long userId;
     private final String contents;
 }

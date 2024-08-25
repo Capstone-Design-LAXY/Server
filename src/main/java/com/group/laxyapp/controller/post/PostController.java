@@ -1,7 +1,7 @@
 package com.group.laxyapp.controller.post;
 
 
-import com.group.laxyapp.dto.post.PostUploadRequest;
+import com.group.laxyapp.dto.post.PostRequest;
 import com.group.laxyapp.dto.post.PostResponse;
 import com.group.laxyapp.service.post.PostService;
 import java.util.List;
@@ -24,7 +24,7 @@ public class PostController {
 
     @GetMapping("/post")
     @ResponseBody
-    public ResponseEntity<List<PostResponse>> getPosts( ) {
+    public ResponseEntity<List<PostResponse>> getPosts() {
         return ResponseEntity.ok(postService.getPosts());
     }
 
@@ -36,20 +36,20 @@ public class PostController {
 
     @PostMapping("/post")
     @ResponseBody
-    public ResponseEntity<PostResponse> uploadPost(@RequestBody PostUploadRequest updateRequest) {
+    public ResponseEntity<PostResponse> uploadPost(@RequestBody PostRequest updateRequest) {
         return ResponseEntity.ok(postService.uploadPost(updateRequest));
     }
 
     @PutMapping("/post/{post_id}")
     @ResponseBody
     public ResponseEntity<PostResponse> updatePost(@PathVariable("post_id") Long postId,
-        @RequestBody PostUploadRequest updateRequest) {
+        @RequestBody PostRequest updateRequest) {
             return ResponseEntity.ok(postService.updatePost(postId, updateRequest));
     }
 
     @DeleteMapping("/post/{post_id}")
     @ResponseBody
-    public void deletePost(@PathVariable("post_id")Long postId) {
+    public void deletePost(@PathVariable("post_id") Long postId) {
             postService.deletePost(postId);
     }
 }

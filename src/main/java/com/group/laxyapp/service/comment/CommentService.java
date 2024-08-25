@@ -3,7 +3,7 @@ package com.group.laxyapp.service.comment;
 import com.group.laxyapp.domain.comment.Comment;
 import com.group.laxyapp.domain.comment.CommentRepository;
 import com.group.laxyapp.dto.comment.CommentResponse;
-import com.group.laxyapp.dto.comment.CommentUploadRequest;
+import com.group.laxyapp.dto.comment.CommentRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -27,11 +27,21 @@ public class CommentService {
     }
 
     @Transactional
-    public CommentResponse uploadComment(CommentUploadRequest request, Long postId) {
+    public CommentResponse uploadComment(CommentRequest request, Long postId) {
         Comment comment = Comment.builder()
             .postId(postId)
             .userId(request.getUserId())
             .contents(request.getContents()).build();
         return new CommentResponse(commentRepository.save(comment));
     }
+
+    public void deleteComment(CommentRequest request) {
+        commentRepository.delete(findCommentById(request.getCommentId()));
+    }
+
+    private Comment findCommentById(Long commentId) {
+        return commentRepository.findByCommentId(commentId)
+            .orElseThrow(IllegalArgumentException::new);
+    }
+
 }

@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="refactor: 게시글 수정 시, updatedAt 갱신 Post.java 내부에서 하도록 수정">
+    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="fix: 게시글 조회 시, 조회수 상승 기능">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/post/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/post/PostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/post/PostUploadRequest$PostUploadRequestBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/post/PostUploadRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/post/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/post/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/comment/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/comment/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/comment/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/comment/CommentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/comment/CommentUploadRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/comment/CommentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/post/PostUploadRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/post/PostRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/comment/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/comment/CommentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -401,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1724597010411</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="fix: 게시글 조회 시, 조회수 상승 기능">
+      <created>1724597190867</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1724597190867</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -443,7 +469,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: 모든 게시물 최신순으로 반환하는 기능" />
     <MESSAGE value="refactor: 게시글 등록, 수정 공백 예외 발생 함수 분리" />
     <MESSAGE value="refactor: 게시글 수정 함수 분리" />
     <MESSAGE value="refactor: 게시글 수정, 게시글 등록 Request 병합" />
@@ -468,7 +493,8 @@
     <MESSAGE value="feat: 특정 게시글의 모든 댓글 오래된 순으로 반환하는 기능" />
     <MESSAGE value="feat: 특정 게시글의 댓글 작성 기능" />
     <MESSAGE value="refactor: 게시글 수정 시, updatedAt 갱신 Post.java 내부에서 하도록 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: 게시글 수정 시, updatedAt 갱신 Post.java 내부에서 하도록 수정" />
+    <MESSAGE value="fix: 게시글 조회 시, 조회수 상승 기능" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 게시글 조회 시, 조회수 상승 기능" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

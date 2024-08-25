@@ -7,7 +7,7 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class PostUploadRequest {
+public class PostRequest {
     private final Long postId;
     private final Long userId;
     private final String title;
