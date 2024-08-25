@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="feat: 특정 게시글의 댓글 작성 기능">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/TagService.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/post/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/post/Post.java" afterDir="false" />
+    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="refactor: 게시글 수정 시, updatedAt 갱신 Post.java 내부에서 하도록 수정">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1724596037964</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="refactor: 게시글 수정 시, updatedAt 갱신 Post.java 내부에서 하도록 수정">
+      <created>1724597010411</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1724597010411</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -439,7 +443,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: 게시글 업로드 예외 처리 테스트 함수 네이밍 수정" />
     <MESSAGE value="feat: 모든 게시물 최신순으로 반환하는 기능" />
     <MESSAGE value="refactor: 게시글 등록, 수정 공백 예외 발생 함수 분리" />
     <MESSAGE value="refactor: 게시글 수정 함수 분리" />
@@ -464,7 +467,8 @@
     <MESSAGE value="feat: 게시글 수정 시, tag DB TABLE 수정 기능 구현" />
     <MESSAGE value="feat: 특정 게시글의 모든 댓글 오래된 순으로 반환하는 기능" />
     <MESSAGE value="feat: 특정 게시글의 댓글 작성 기능" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 특정 게시글의 댓글 작성 기능" />
+    <MESSAGE value="refactor: 게시글 수정 시, updatedAt 갱신 Post.java 내부에서 하도록 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: 게시글 수정 시, updatedAt 갱신 Post.java 내부에서 하도록 수정" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
