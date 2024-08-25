@@ -8,7 +8,6 @@ import com.group.laxyapp.service.tag.TagService;
 import java.util.stream.Collectors;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.transaction.annotation.Transactional;
-import java.time.LocalDateTime;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -60,7 +59,6 @@ public class PostService {
             .contents(request.getContents())
             .tag(updateTag(postId, request))
             .photoFile(request.getPhotoFile())
-            .updatedAt(LocalDateTime.now())
             .build();
     }
 
