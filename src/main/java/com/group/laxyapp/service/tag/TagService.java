@@ -36,8 +36,8 @@ public class TagService {
             .filter(tag -> tag.getCount() <= 0).toList();
     }
 
-    public Integer setGrade(count) {
-        Integer grade = 0;
-        grade = tagRepository.findTotalCount()
-    }
+//    public Integer setGrade(count) {
+//        Integer grade = 0;
+//        grade = tagRepository.findTotalCount()
+//    }
 }

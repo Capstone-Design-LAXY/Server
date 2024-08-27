@@ -5,11 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="fix: 게시글 조회 시, 조회수 상승 기능">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/search/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/search/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/tag/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/tag/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/tag/TagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/tag/TagRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/search/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/search/SearchService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/tag/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/tag/TagService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
