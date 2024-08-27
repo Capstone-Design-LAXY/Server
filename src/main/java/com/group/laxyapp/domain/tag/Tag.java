@@ -59,4 +59,32 @@ public class Tag {
         this.updatedAt = LocalDateTime.now();
         return this;
     }
+
+    public Long getTagId() {
+        return tagId;
+    }
+
+    public String getTagName() {
+        return tagName;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public Integer getBookmarked() {
+        return bookmarked;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
 }
