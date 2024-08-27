@@ -7,6 +7,7 @@ import com.group.laxyapp.dto.user.response.UserResponse;
 import com.group.laxyapp.domain.user.User;
 import com.group.laxyapp.domain.user.UserRepository;
 import com.group.laxyapp.dto.post.PostResponse;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +24,7 @@ public class SearchService {
     private final PostRepository postRepository;
     private final TagRepository tagRepository;
 
-    public SearchService(UserRepository userRepository, PostRepository postRepository, TagRepository tagRepository) {
-        this.userRepository = userRepository;
-        this.postRepository = postRepository;
-        this.tagRepository = tagRepository;
-    }
-
+    @Transactional
     public List<UserResponse> userSearch(String nickname) {
         List<User> users = userRepository.findByNicknameContains(nickname);
 
@@ -37,12 +33,14 @@ public class SearchService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public List<PostResponse> titleSearch(String title) {
         return postRepository.findByTitleContains(title)
                 .stream().map(PostResponse::new)
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public List<TagResponse> tagSearch(String tag_name) {
         return tagRepository.findByTagNameContains(tag_name)
                 .stream().map(TagResponse::new)

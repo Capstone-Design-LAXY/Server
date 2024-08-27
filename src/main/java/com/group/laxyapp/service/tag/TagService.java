@@ -4,13 +4,14 @@ import com.group.laxyapp.domain.tag.Tag;
 import com.group.laxyapp.domain.tag.TagRepository;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalLong;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class TagService {
 
     private final TagRepository tagRepository;
@@ -36,8 +37,11 @@ public class TagService {
             .filter(tag -> tag.getCount() <= 0).toList();
     }
 
-//    public Integer setGrade(count) {
-//        Integer grade = 0;
+    public Long getCountByTagName(String tagname) {
+        return tagRepository.countByTagName(tagname);
+    }
+
+//    public long setGrade(count) {
 //        grade = tagRepository.findTotalCount()
 //    }
 }

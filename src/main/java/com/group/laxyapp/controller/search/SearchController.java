@@ -20,10 +20,6 @@ public class SearchController {
 
     private final SearchService searchService;
 
-    public SearchController(SearchService searchService) {
-        this.searchService = searchService;
-    }
-
     @GetMapping("/search/{nickname}")
     @ResponseBody
     public ResponseEntity<List<UserResponse>> userSearch(@PathVariable("nickname") String nickname) {
