@@ -9,7 +9,6 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class ErrorResponse {
-    private String code;
-    private String exception;
+    private String error;
     private String message;
 }

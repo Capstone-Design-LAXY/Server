@@ -1,5 +1,8 @@
 package com.group.laxyapp.service.post;
 
+import com.group.laxyapp.service.exception.CustomException;
+import com.group.laxyapp.service.exception.enums.ErrorCode;
+import com.group.laxyapp.service.exception.enums.ErrorMessage;
 import com.group.laxyapp.domain.post.Post;
 import com.group.laxyapp.domain.post.PostRepository;
 import com.group.laxyapp.dto.post.PostRequest;
@@ -49,7 +52,8 @@ public class PostService {
     }
 
     @Transactional
-    public void deletePost(Long postId) {
+    public void deletePost(Long userId, Long postId) {
+        PostValidator.checkDeletePostById(userId, findPostById(postId).getPostId());
         postRepository.delete(findPostById(postId));
     }
 
@@ -64,7 +68,9 @@ public class PostService {
 
     private Post findPostById(Long postId) {
         return postRepository.findByPostId(postId)
-            .orElseThrow(IllegalArgumentException::new);
+            .orElseThrow(
+                () -> new CustomException(ErrorCode.RESOURCE_NOT_FOUND,
+                    ErrorMessage.NOT_FOUND_POST));
     }
 
     private List<String> updateTag(Long postId, PostRequest request) {
