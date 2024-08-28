@@ -43,13 +43,13 @@ public class PostController {
     @PutMapping("/post/{post_id}")
     @ResponseBody
     public ResponseEntity<PostResponse> updatePost(@PathVariable("post_id") Long postId,
-        @RequestBody PostRequest updateRequest) {
-            return ResponseEntity.ok(postService.updatePost(postId, updateRequest));
+        @RequestBody PostRequest request) {
+            return ResponseEntity.ok(postService.updatePost(postId, request));
     }
 
     @DeleteMapping("/post/{post_id}")
     @ResponseBody
-    public void deletePost(@RequestBody PostRequest request, @PathVariable("post_id") Long postId) {
-            postService.deletePost(request.getUserId(), postId);
+    public void deletePost(@PathVariable("post_id") Long postId, @RequestBody PostRequest request) {
+            postService.deletePost(postId, request);
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PostValidator {
 
-    public static void checkDeletePostById(Long userId, Long writerId) {
+    public static void checkAuthorPost(Long userId, Long writerId) {
         if (!isSameUserId(userId, writerId)) {
             throw new CustomException(ErrorCode.UNAUTHORIZED_ERROR, ErrorMessage.UNAUTHORIZED_DELETE_POST);
         }

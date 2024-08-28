@@ -36,6 +36,7 @@ public class PostService {
 
     @Transactional
     public PostResponse updatePost(Long postId, PostRequest request) {
+        PostValidator.checkAuthorPost(request.getUserId(), getWriterIdByPostId(postId));
         return new PostResponse(postRepository.save(setUpdatePost(postId, request)));
     }
 
@@ -48,17 +49,17 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public PostResponse getPost(Long postId) {
-        return new PostResponse(postRepository.save(findPostById(postId).incrementViewed()));
+        return new PostResponse(postRepository.save(getPostByPostId(postId).incrementViewed()));
     }
 
     @Transactional
-    public void deletePost(Long userId, Long postId) {
-        PostValidator.checkDeletePostById(userId, findPostById(postId).getPostId());
-        postRepository.delete(findPostById(postId));
+    public void deletePost(Long postId, PostRequest request) {
+        PostValidator.checkAuthorPost(request.getUserId(), getWriterIdByPostId(postId));
+        postRepository.delete(getPostByPostId(postId));
     }
 
     private Post setUpdatePost(Long postId, PostRequest request) {
-        return findPostById(postId).toBuilder()
+        return getPostByPostId(postId).toBuilder()
             .title(request.getTitle())
             .contents(request.getContents())
             .tag(updateTag(postId, request))
@@ -66,7 +67,11 @@ public class PostService {
             .build();
     }
 
-    private Post findPostById(Long postId) {
+    private Long getWriterIdByPostId(Long postId) {
+        return getPostByPostId(postId).getUserId();
+    }
+
+    private Post getPostByPostId(Long postId) {
         return postRepository.findByPostId(postId)
             .orElseThrow(
                 () -> new CustomException(ErrorCode.RESOURCE_NOT_FOUND,
