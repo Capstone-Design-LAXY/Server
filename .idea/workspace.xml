@@ -4,23 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="feat: 게시글 삭제 시, id 일치 확인 후 예외 처리">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.7/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/checksums/checksums.lock" afterDir="false" />
+    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="feat: 게시글 수정 시, 작성자 id 일치 확인 후 예외 처리">
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.7/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024-08-22__7_39__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024-08-22__7_39__________.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024-08-22__7_41__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024-08-22__7_41__________.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/config/SecurityConfig$ErrorResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/config/SecurityConfig$ErrorResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/Exception/CommonErrorCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/Exception/ErrorCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/Exception/ErrorMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/Exception/GlobalExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/Exception/RestApiException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/post/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/post/PostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/ErrorResponse$ErrorResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/ErrorResponse$ErrorResponseBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/ErrorResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/ErrorResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/user/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/RefreshToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/RefreshToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/user/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/user/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/user/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/user/response/UserResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/user/response/UserResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/security/TokenProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/security/TokenProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/post/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/post/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/user/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,44 +48,31 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="laxy-app" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
-        <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/hYe807n" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="gdexz" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -93,37 +96,15 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
   <component name="ProjectId" id="2jGg5UZcAyRrkW45qu6mmPww5zC" />
   <component name="ProjectViewState">
     <option name="abbreviatePackageNames" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.server [:LaxyAppApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;jwjw&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/things/laxy/server&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
-  }
-}</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.group.laxyapp.controller.exception" />
-      <recent name="com.group.laxyapp.dto.comment" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.group.laxyapp.controller.post" />
-    </key>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle" />
   </component>
   <component name="RunManager" selected="Application.LaxyAppApplication">
     <configuration name="LaxyAppApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -187,8 +168,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.PostControllerTest.isNullContents" />
         <item itemvalue="Gradle.PostControllerTest.isNullTitle" />
+        <item itemvalue="Gradle.PostControllerTest.isNullContents" />
+        <item itemvalue="Application.LaxyAppApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -201,259 +183,96 @@
       <option name="presentableId" value="Default" />
       <updated>1721018648331</updated>
     </task>
-    <task id="LOCAL-00001" summary="feat: &quot;/post&quot; response message 처리할 enum 정의">
-      <created>1723536708803</created>
+    <task id="LOCAL-00001" summary="GlobalExceptionHandlerl 확인. token 적용">
+      <created>1724275392488</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1723536708804</updated>
+      <updated>1724275392488</updated>
     </task>
-    <task id="LOCAL-00002" summary="feat: &quot;/post&quot; state 201 게시글 등록 성공 기능 구현">
-      <created>1723541107032</created>
+    <task id="LOCAL-00002" summary="GlobalExceptionHandlerl 확인. token 적용">
+      <created>1724310846836</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1723541107032</updated>
+      <updated>1724310846836</updated>
     </task>
-    <task id="LOCAL-00003" summary="feat: &quot;/post&quot; state 401 게시글 내용, 제목 공백 시 예외 발생 처리">
-      <created>1723543881547</created>
+    <task id="LOCAL-00003" summary="tag 부분 코드 추가">
+      <created>1724447229252</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1723543881547</updated>
+      <updated>1724447229253</updated>
     </task>
-    <task id="LOCAL-00004" summary="test: 게시글 내용이 공백이라면 예외 발생">
-      <created>1723544813468</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1723544813468</updated>
-    </task>
-    <task id="LOCAL-00005" summary="test: 게시글 제목이 공백이라면 예외 발생">
-      <created>1723544879721</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1723544879721</updated>
-    </task>
-    <task id="LOCAL-00006" summary="fix: &quot;/post&quot; 게시글 수정을 위한 &quot;updatedAt&quot;, &quot;postId&quot; column 추가">
-      <created>1723565013516</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1723565013516</updated>
-    </task>
-    <task id="LOCAL-00007" summary="refactor: 게시글 제목,내용 공백 예외 발생 함수 분리">
-      <created>1723566059163</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1723566059163</updated>
-    </task>
-    <task id="LOCAL-00008" summary="feat: &quot;/post&quot; state 201 게시글 수정 성공 구현">
-      <created>1723569017272</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1723569017272</updated>
-    </task>
-    <task id="LOCAL-00009" summary="feat: 게시글 수정 시 제목, 내용 공백 시 예외 발생">
-      <created>1723569852628</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1723569852628</updated>
-    </task>
-    <task id="LOCAL-00010" summary="refactor: 게시글 업로드 예외 처리 테스트 함수 네이밍 수정">
-      <created>1723570069499</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1723570069499</updated>
-    </task>
-    <task id="LOCAL-00011" summary="feat: 모든 게시물 최신순으로 반환하는 기능">
-      <created>1723577095090</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1723577095090</updated>
-    </task>
-    <task id="LOCAL-00012" summary="refactor: 게시글 등록, 수정 공백 예외 발생 함수 분리">
-      <created>1723675170963</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1723675170963</updated>
-    </task>
-    <task id="LOCAL-00013" summary="refactor: 게시글 수정, 게시글 등록 Request 병합">
-      <created>1723679297286</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1723679297286</updated>
-    </task>
-    <task id="LOCAL-00014" summary="fix: 게시글 수정 시 postId 를 url parameter 로 받아오도록 수정">
-      <created>1723687660496</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1723687660496</updated>
-    </task>
-    <task id="LOCAL-00015" summary="style: 게시글 등록, 수정 시 제목과 내용이 공백이라면 예외 처리하는 코드 별도로 class 생성">
-      <created>1723691572499</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1723691572499</updated>
-    </task>
-    <task id="LOCAL-00016" summary="refactor: 게시글 전체 조회, 상세보기 응답에 쓰일 PostResponse class 도입">
-      <created>1723696201243</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1723696201243</updated>
-    </task>
-    <task id="LOCAL-00017" summary="feat: 게시글 상세보기 기능 구현">
-      <created>1723697893392</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1723697893392</updated>
-    </task>
-    <task id="LOCAL-00018" summary="refactor: 게시글 전체보기 성공 시, 상태 코드 201 응답도 포함으로 수정">
-      <created>1723698020385</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1723698020385</updated>
-    </task>
-    <task id="LOCAL-00019" summary="refactor: 게시글 수정, 삭제 시 post_id url parameter 로 가져오는 방식 통일하기 위해 수정">
-      <created>1723698110290</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1723698110290</updated>
-    </task>
-    <task id="LOCAL-00020" summary="fix: post table 구조 변경&#10;1. likes(좋아요)&amp;viewed(조회수) column 추가&#10;2. tag(태그)&amp;photofile(사진) column String -&gt; List&lt;String&gt; 으로 변경">
-      <created>1723704860168</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1723704860169</updated>
-    </task>
-    <task id="LOCAL-00021" summary="fix: post, comment DB TABLE 'id' column 명을 'user_id'로 변경">
-      <created>1723767382929</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1723767382929</updated>
-    </task>
-    <task id="LOCAL-00022" summary="fix: 게시글 전체 조회 시, 'createdAt' 순으로 정렬되도록 수정">
-      <created>1723767618553</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1723767618553</updated>
-    </task>
-    <task id="LOCAL-00023" summary="fix: 게시글 등록/수정 후 PostResponse 객체 return">
-      <created>1723773835986</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1723773835986</updated>
-    </task>
-    <task id="LOCAL-00024" summary="fix: 게시글 상세 시, Post의 viewed(조회수) 값 증가">
-      <created>1723774426441</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1723774426441</updated>
-    </task>
-    <task id="LOCAL-00025" summary="feat: exception custom handler 기능 구현">
-      <created>1723955947164</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1723955947164</updated>
-    </task>
-    <task id="LOCAL-00026" summary="refactor: builder() 적용">
-      <created>1723961806131</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1723961806131</updated>
-    </task>
-    <task id="LOCAL-00027" summary="feat: 게시글 등록 시, tag DB TABLE 생성 기능 구현">
-      <created>1724147453853</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1724147453853</updated>
-    </task>
-    <task id="LOCAL-00028" summary="feat: 게시글 수정 시, tag DB TABLE 수정 기능 구현">
-      <created>1724148661826</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1724148661826</updated>
-    </task>
-    <task id="LOCAL-00029" summary="feat: 특정 게시글의 모든 댓글 오래된 순으로 반환하는 기능">
-      <created>1724493020086</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1724493020086</updated>
-    </task>
-    <task id="LOCAL-00030" summary="feat: 특정 게시글의 댓글 작성 기능">
-      <created>1724596037964</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1724596037964</updated>
-    </task>
-    <task id="LOCAL-00031" summary="refactor: 게시글 수정 시, updatedAt 갱신 Post.java 내부에서 하도록 수정">
-      <created>1724597010411</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1724597010411</updated>
-    </task>
-    <task id="LOCAL-00032" summary="fix: 게시글 조회 시, 조회수 상승 기능">
-      <created>1724597190867</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1724597190867</updated>
-    </task>
-    <task id="LOCAL-00033" summary="feat: 댓글 삭제 기능">
-      <created>1724600664863</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1724600664863</updated>
-    </task>
-    <task id="LOCAL-00034" summary="feat: 게시글 삭제 시, id 일치 확인 후 예외 처리">
-      <created>1724833115092</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1724833115092</updated>
-    </task>
-    <option name="localTasksCounter" value="35" />
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
-        <entry key="MAIN">
+        <entry key="50a68095-a4ca-4217-96c7-8c0c2c05947a">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/hYe807n" />
+                        <option value="gdexz" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="fbaf1bf2-fad1-4d31-afc4-3d2dc145a2b8">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:C:/new_laxy/laxy-app/src/main/java/com/group/laxyapp/domain" />
                       </list>
                     </value>
                   </entry>
@@ -464,49 +283,17 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
+    <option name="OPEN_GENERIC_TABS">
       <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/hYe807n" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
+        <entry key="50a68095-a4ca-4217-96c7-8c0c2c05947a" value="TOOL_WINDOW" />
+        <entry key="fbaf1bf2-fad1-4d31-afc4-3d2dc145a2b8" value="TOOL_WINDOW" />
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: 게시글 수정, 게시글 등록 Request 병합" />
-    <MESSAGE value="fix: 게시글 수정 시 postId 를 url parameter 로 받아오도록 수정" />
-    <MESSAGE value="style: 게시글 등록, 수정 시 제목과 내용이 공백이라면 예외 처리 코드 위치 이동" />
-    <MESSAGE value="style: 게시글 등록, 수정 시 제목과 내용이 공백이라면 예외 처리하는 코드 별도로 class 생성" />
-    <MESSAGE value="refactor: 게시글 전체 조회, 상세보기 응답에 쓰일 PostResponse class 도입" />
-    <MESSAGE value="feat: 게시글 상세보기 기능 구현" />
-    <MESSAGE value="refactor: 게시글 전체보기 성공 시, 상태 코드 201 응답으로 수정" />
-    <MESSAGE value="refactor: 게시글 전체보기 성공 시, 상태 코드 201 응답도 포함으로 수정" />
-    <MESSAGE value="refactor: 게시글 수정, 삭제 시 post_id url parameter 로 가져오는 방식 통일하기 위해 수정" />
-    <MESSAGE value="fix: post table 구조 변경&#10;1. likes(좋아요)&amp;viewed(조회수) column 추가&#10;2. tag(태그)&amp;photofile(사진) column String -&gt; List&lt;String&gt; 으로 변경" />
-    <MESSAGE value="fix: post, comment DB TABLE 'id' column 명을 'user_id'로 변경" />
-    <MESSAGE value="fix: 게시글 전체 조회 시, 'createdAt' 순으로 정렬되도록 수정" />
-    <MESSAGE value="fix: 게시글 등록/수정 후 PostResponse 객체 return" />
-    <MESSAGE value="fix: 게시글 상세 시, Post의 viewed(조회수) 값 증가" />
-    <MESSAGE value="feat: exception custom handler 기능 구현" />
-    <MESSAGE value="fix: state 401 권한 예외 처리 과정 중 ErrorCode field 값 수정" />
-    <MESSAGE value="refactor: builder() 적용" />
-    <MESSAGE value="feat: 게시글 등록 시, tag DB TABLE 생성 기능 구현" />
-    <MESSAGE value="feat: 게시글 수정 시, tag DB TABLE 수정 기능 구현" />
-    <MESSAGE value="feat: 특정 게시글의 모든 댓글 오래된 순으로 반환하는 기능" />
-    <MESSAGE value="feat: 특정 게시글의 댓글 작성 기능" />
-    <MESSAGE value="refactor: 게시글 수정 시, updatedAt 갱신 Post.java 내부에서 하도록 수정" />
-    <MESSAGE value="fix: 게시글 조회 시, 조회수 상승 기능" />
-    <MESSAGE value="feat: 댓글 삭제 기능" />
-    <MESSAGE value="feat: 게시글 삭제 시, id 일치 확인 후 예외 처리" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 게시글 삭제 시, id 일치 확인 후 예외 처리" />
+    <MESSAGE value="GlobalExceptionHandlerl 확인. token 적용" />
+    <MESSAGE value="tag 부분 코드 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="tag 부분 코드 추가" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

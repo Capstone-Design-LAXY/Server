@@ -36,15 +36,15 @@ public class PostController {
 
     @PostMapping("/post")
     @ResponseBody
-    public ResponseEntity<PostResponse> uploadPost(@RequestBody PostRequest updateRequest) {
-        return ResponseEntity.ok(postService.uploadPost(updateRequest));
+    public ResponseEntity<Long> uploadPost(@RequestBody PostRequest updateRequest) {
+        return ResponseEntity.ok(postService.uploadPost(updateRequest).postId);
     }
 
     @PutMapping("/post/{post_id}")
     @ResponseBody
-    public ResponseEntity<PostResponse> updatePost(@PathVariable("post_id") Long postId,
+    public ResponseEntity<Long> updatePost(@PathVariable("post_id") Long postId,
         @RequestBody PostRequest request) {
-            return ResponseEntity.ok(postService.updatePost(postId, request));
+            return ResponseEntity.ok(postService.updatePost(postId, request).postId);
     }
 
     @DeleteMapping("/post/{post_id}")
