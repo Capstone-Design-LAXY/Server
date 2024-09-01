@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/LaxyAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/LaxyAppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/exception/ErrorMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/exception/ErrorMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/RefreshToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/RefreshToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/post/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/post/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/post/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/post/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/user/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/user/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/post/request/PostUploadRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/post/PostRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/post/response/PostResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/post/PostResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/request/JoinRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/request/JoinRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/request/UserLoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/request/UserLoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/request/UserRegistRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/request/UserRegistRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/request/UserUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/request/UserUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/response/TokenResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/response/TokenResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/response/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/response/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/security/TokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/security/TokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/RefreshTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/RefreshTokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/user/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/user/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/user/UserService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/hYe807n" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="2jGg5UZcAyRrkW45qu6mmPww5zC" />
+  <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle" />
+  </component>
+  <component name="RunManager">
+    <configuration name="LaxyAppApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.group.laxyapp.LaxyAppApplication" />
+      <module name="laxy-app.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.group.laxyapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="애플리케이션.LaxyAppApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="" />
+      <created>1721018648331</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721018648331</updated>
+    </task>
+    <task id="LOCAL-00001" summary="GlobalExceptionHandlerl 확인. token 적용">
+      <created>1724275392488</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1724275392488</updated>
+    </task>
+    <task id="LOCAL-00002" summary="GlobalExceptionHandlerl 확인. token 적용">
+      <created>1724310846836</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1724310846836</updated>
+    </task>
+    <task id="LOCAL-00003" summary="tag 부분 코드 추가">
+      <created>1724447229252</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1724447229253</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="50a68095-a4ca-4217-96c7-8c0c2c05947a">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="gdexz" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/gdexz" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="fbaf1bf2-fad1-4d31-afc4-3d2dc145a2b8">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:C:/new_laxy/laxy-app/src/main/java/com/group/laxyapp/domain" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="50a68095-a4ca-4217-96c7-8c0c2c05947a" value="TOOL_WINDOW" />
+        <entry key="fbaf1bf2-fad1-4d31-afc4-3d2dc145a2b8" value="TOOL_WINDOW" />
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="GlobalExceptionHandlerl 확인. token 적용" />
+    <MESSAGE value="tag 부분 코드 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="tag 부분 코드 추가" />
+  </component>
+</project>
