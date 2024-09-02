@@ -1,13 +1,13 @@
 package com.group.laxyapp.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.group.laxyapp.domain.user.UserRole;
 import com.group.laxyapp.security.JwtAuthenticationFilter;
 import com.group.laxyapp.security.TokenProvider;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -38,10 +38,11 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                .requestMatchers("/", "/auth/**", "/index.html", "/user/login", "/user/delete", "/mypage", "/signup", "/user", "/post/**", "/mypage/post").permitAll()
-                .requestMatchers("/posts/**", "/api/v1/posts/**").hasRole(UserRole.USER.name())
-                .requestMatchers("/admins/**", "/api/v1/admins/**").hasRole(UserRole.ADMIN.name())
-                .anyRequest().authenticated()
+                .requestMatchers("/", "/auth/**", "/index.html", "/user/login", "/signup", "/post/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/post").authenticated()
+                .requestMatchers(HttpMethod.PUT, "/post").authenticated()
+                .requestMatchers(HttpMethod.DELETE, "/post").authenticated()
+                .anyRequest().permitAll()
             )
             .addFilterBefore(new JwtAuthenticationFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class)
             .formLogin(formLogin -> formLogin
@@ -63,6 +64,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {

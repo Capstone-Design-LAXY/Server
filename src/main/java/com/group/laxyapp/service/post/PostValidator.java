@@ -10,7 +10,7 @@ public class PostValidator {
 
     public static void checkAuthorPost(Long userId, Long writerId) {
         if (!isSameUserId(userId, writerId)) {
-            throw new CustomException(ErrorCode.UNAUTHORIZED_ERROR, ErrorMessage.UNAUTHORIZED_DELETE_POST);
+            throw new CustomException(ErrorCode.FORBIDDEN, ErrorMessage.FORBIDDEN_DELETE_POST);
         }
     }
 

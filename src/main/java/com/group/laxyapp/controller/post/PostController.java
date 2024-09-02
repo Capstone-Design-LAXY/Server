@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -36,20 +37,24 @@ public class PostController {
 
     @PostMapping("/post")
     @ResponseBody
-    public ResponseEntity<Long> uploadPost(@RequestBody PostRequest updateRequest) {
+    public ResponseEntity<Long> uploadPost(@RequestHeader("Authorization") String token,
+        @RequestBody PostRequest updateRequest) {
         return ResponseEntity.ok(postService.uploadPost(updateRequest).postId);
     }
 
     @PutMapping("/post/{post_id}")
     @ResponseBody
-    public ResponseEntity<Long> updatePost(@PathVariable("post_id") Long postId,
+    public ResponseEntity<Long> updatePost(@RequestHeader("Authorization") String token,
+        @PathVariable("post_id") Long postId,
         @RequestBody PostRequest request) {
-            return ResponseEntity.ok(postService.updatePost(postId, request).postId);
+        return ResponseEntity.ok(postService.updatePost(postId, request).postId);
     }
 
     @DeleteMapping("/post/{post_id}")
     @ResponseBody
-    public void deletePost(@PathVariable("post_id") Long postId, @RequestBody PostRequest request) {
-            postService.deletePost(postId, request);
+    public void deletePost(@RequestHeader("Authorization") String token,
+        @PathVariable("post_id") Long postId,
+        @RequestBody PostRequest request) {
+        postService.deletePost(postId, request);
     }
 }
