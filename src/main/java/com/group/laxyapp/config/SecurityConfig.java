@@ -36,30 +36,30 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                        .requestMatchers("/", "/auth/**", "/index.html", "/user/login", "/user/delete", "/mypage", "/signup", "/user", "/post", "/mypage/post").permitAll()
-                        .requestMatchers("/posts/**", "/api/v1/posts/**").hasRole(UserRole.USER.name())
-                        .requestMatchers("/admins/**", "/api/v1/admins/**").hasRole(UserRole.ADMIN.name())
-                        .anyRequest().authenticated()
-                )
-                .addFilterBefore(new JwtAuthenticationFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class)
-                .formLogin(formLogin -> formLogin
-                        .loginPage("/login")
-                        .usernameParameter("email")
-                        .passwordParameter("password")
-                        .defaultSuccessUrl("/")
-                )
-                .logout(logout -> logout
-                        .logoutUrl("/logout")
-                        .logoutSuccessUrl("/") // 로그아웃 후 메인 페이지로 리다이렉트
-                        .invalidateHttpSession(true)
-                        .deleteCookies("JSESSIONID")
-                )
-                .exceptionHandling(exceptionHandling -> exceptionHandling
-                        .authenticationEntryPoint(unauthorizedEntryPoint)
-                        .accessDeniedHandler(accessDeniedHandler)
-                );
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(authorizeRequests -> authorizeRequests
+                .requestMatchers("/", "/auth/**", "/index.html", "/user/login", "/user/delete", "/mypage", "/signup", "/user", "/post/**", "/mypage/post").permitAll()
+                .requestMatchers("/posts/**", "/api/v1/posts/**").hasRole(UserRole.USER.name())
+                .requestMatchers("/admins/**", "/api/v1/admins/**").hasRole(UserRole.ADMIN.name())
+                .anyRequest().authenticated()
+            )
+            .addFilterBefore(new JwtAuthenticationFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class)
+            .formLogin(formLogin -> formLogin
+                .loginPage("/login")
+                .usernameParameter("email")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/")
+            )
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+            )
+            .exceptionHandling(exceptionHandling -> exceptionHandling
+                .authenticationEntryPoint(unauthorizedEntryPoint)
+                .accessDeniedHandler(accessDeniedHandler)
+            );
 
         return http.build();
     }
@@ -75,8 +75,8 @@ public class SecurityConfig {
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
-                .authenticationProvider(daoAuthenticationProvider())
-                .build();
+            .authenticationProvider(daoAuthenticationProvider())
+            .build();
     }
 
     private final AuthenticationEntryPoint unauthorizedEntryPoint = (request, response, authException) -> {

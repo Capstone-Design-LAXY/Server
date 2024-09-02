@@ -1,15 +1,14 @@
 package com.group.laxyapp.controller.user;
 
+import com.group.laxyapp.dto.user.request.UserLoginRequest;
 import com.group.laxyapp.dto.user.request.UserRegistRequest;
 import com.group.laxyapp.dto.user.request.UserUpdateRequest;
 import com.group.laxyapp.dto.user.response.UserResponse;
 import com.group.laxyapp.service.user.UserService;
 import com.group.laxyapp.service.AuthService;
-import jakarta.servlet.http.HttpServletRequest;
+import com.group.laxyapp.security.TokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,10 +20,11 @@ public class UserController {
 
     private final UserService userService;
     private final AuthService authService;
+    private final TokenProvider tokenProvider;
 
     @PostMapping("/user")
     @ResponseBody
-    public ResponseEntity<String> registUser(@RequestBody UserRegistRequest registRequest) {
+    public ResponseEntity<String> registerUser(@RequestBody UserRegistRequest registRequest) {
         registRequest.setConfirmPassword(registRequest.getConfirmPassword());
 
         if (!registRequest.isPasswordMatching()) {
@@ -36,8 +36,18 @@ public class UserController {
         }
 
         userService.registUser(registRequest);
-
         return ResponseEntity.ok("회원 가입이 완료되었습니다.");
+    }
+
+    @PostMapping("/user/login")
+    @ResponseBody
+    public ResponseEntity<?> login(@RequestBody UserLoginRequest loginRequest) {
+        try {
+            String token = authService.authenticateAndGenerateToken(loginRequest.getEmail(), loginRequest.getPassword());
+            return ResponseEntity.ok().body("Bearer " + token);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("로그인 실패: " + e.getMessage());
+        }
     }
 
     @GetMapping("/user")
@@ -48,9 +58,15 @@ public class UserController {
 
     @PutMapping("/mypage")
     @ResponseBody
-    public ResponseEntity<String> updateUser(@RequestBody UserUpdateRequest updateRequest) {
+    public ResponseEntity<String> updateUser(@RequestHeader("Authorization") String token,
+        @RequestBody UserUpdateRequest updateRequest) {
         try {
-            userService.updateUser(updateRequest);
+            if (token.startsWith("Bearer ")) {
+                token = token.substring(7);
+            }
+
+            String email = tokenProvider.getUsername(token);
+            userService.updateUser(email, updateRequest);
             return ResponseEntity.ok("회원 정보가 수정되었습니다.");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -59,8 +75,13 @@ public class UserController {
 
     @DeleteMapping("/user/delete")
     @ResponseBody
-    public ResponseEntity<String> deleteUser(@RequestParam("email") String email) {
+    public ResponseEntity<String> deleteUser(@RequestHeader("Authorization") String token) {
         try {
+            if (token.startsWith("Bearer ")) {
+                token = token.substring(7);
+            }
+
+            String email = tokenProvider.getUsername(token);
             userService.deleteUser(email);
             return ResponseEntity.ok("회원 탈퇴가 완료되었습니다.");
         } catch (IllegalArgumentException e) {
@@ -72,18 +93,5 @@ public class UserController {
     @ResponseBody
     public boolean checkEmail(@RequestParam("email") String email) {
         return userService.isEmailDuplicate(email);
-    }
-
-    @PostMapping("/logout")
-    @ResponseBody
-    public ResponseEntity<String> logout(HttpServletRequest request, @RequestParam("refreshToken") String refreshToken) {
-        // 리프레시 토큰 삭제
-        authService.logout(refreshToken);
-
-        // 세션 무효화
-        new SecurityContextLogoutHandler().logout(request, null,
-                SecurityContextHolder.getContext().getAuthentication());
-
-        return ResponseEntity.ok("로그아웃이 완료되었습니다.");
     }
 }

@@ -5,7 +5,112 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="refactor: User id 네이밍 수정">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.7/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2024-08-22__7_39__________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2024-08-22__7_39__________.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/LaxyAppApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/config/AppConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/config/AuthProvider$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/config/AuthProvider$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/config/AuthProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/config/SecurityConfig$ErrorResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/config/UserServiceConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/AuthController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/Exception/CustomException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/Exception/CustomExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/Exception/enums/ErrorCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/Exception/enums/ErrorMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/comment/CommentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/post/PostController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/controller/user/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/RefreshToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/comment/Comment$CommentBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/comment/Comment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/comment/CommentRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/post/Post$PostBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/post/Post.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/post/PostRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/post/StringListConverter$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/post/StringListConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/tag/Tag$TagBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/tag/Tag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/tag/TagRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/user/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/user/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/domain/user/UserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/ErrorResponse$ErrorResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/ErrorResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/comment/CommentRequest$CommentRequestBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/comment/CommentRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/comment/CommentResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/post/PostRequest$PostRequestBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/post/PostRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/post/PostResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/user/request/JoinRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/user/request/UserLoginRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/user/request/UserRegistRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/user/request/UserUpdateRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/user/response/TokenResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/dto/user/response/UserResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/repository/RefreshTokenRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/security/JwtAuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/security/TokenProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/AuthService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/RefreshTokenService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/comment/CommentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/post/PostService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/post/PostValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/tag/TagService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/group/laxyapp/service/user/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/group/laxyapp/LaxyAppApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/user.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PostController.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/compileTransaction/stash-dir/PostControllerTest.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/user.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/AuthProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/AuthProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/UserServiceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/UserServiceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/RefreshToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/RefreshToken.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/response/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/user/response/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/repository/RefreshTokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/repository/RefreshTokenRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/security/TokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/security/TokenProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/RefreshTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/RefreshTokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,9 +242,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LaxyAppApplication" />
         <item itemvalue="Gradle.PostControllerTest.isNullTitle" />
         <item itemvalue="Gradle.PostControllerTest.isNullContents" />
-        <item itemvalue="Application.LaxyAppApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -273,6 +378,15 @@
     <option name="LAST_COMMIT_MESSAGE" value="refactor: User id 네이밍 수정" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/user/UserController.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="java.lang.invoke.MethodHandleProxies$1" memberName="target" />
