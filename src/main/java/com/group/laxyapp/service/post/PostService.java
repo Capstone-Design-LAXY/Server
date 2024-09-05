@@ -1,5 +1,7 @@
 package com.group.laxyapp.service.post;
 
+import com.group.laxyapp.dto.post.AllPostRequest;
+import com.group.laxyapp.service.comment.CommentService;
 import com.group.laxyapp.service.exception.CustomException;
 import com.group.laxyapp.service.exception.enums.ErrorCode;
 import com.group.laxyapp.service.exception.enums.ErrorMessage;
@@ -21,7 +23,10 @@ import org.springframework.stereotype.Service;
 public class PostService {
 
     private final PostRepository postRepository;
+    private final CommentService commentService;
     private final TagService TagService;
+
+    private final static int MAX_TITLE_LENGTH = 30;
 
     @Transactional
     public PostResponse uploadPost(PostRequest request) {
@@ -41,10 +46,17 @@ public class PostService {
     }
 
     @Transactional(readOnly = true)
-    public List<PostResponse> getPosts() {
-        return postRepository.findAll(Sort.by(Direction.DESC, "createdAt"))
-            .stream().map(PostResponse::new)
-            .collect(Collectors.toList());
+    public List<AllPostRequest> getPosts() {
+       List<Post> posts =  postRepository.findAll(Sort.by(Direction.DESC, "createdAt"));
+       return posts.stream().map(post -> AllPostRequest.builder()
+            .title(subTitle(post.getTitle()))
+            .contents(post.getContents())
+            .createdAt(post.getCreatedAt())
+            .commentCount(commentService.getCommentsByPostId(post.getPostId()).size())
+            .likes(post.getLikes())
+            .photoFile(post.getPhotoFile())
+            .postId(post.getPostId()).build()
+        ).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
@@ -82,5 +94,12 @@ public class PostService {
         postRepository.findByPostId(postId)
             .ifPresent(post -> TagService.decrementTagsByName(post.getTag()));
         return TagService.uploadTagByName(request.getTag());
+    }
+
+    private String subTitle(String title) {
+        if (title.length() <= MAX_TITLE_LENGTH) {
+            return title;
+        }
+        return title.substring(0, MAX_TITLE_LENGTH);
     }
 }

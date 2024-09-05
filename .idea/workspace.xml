@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="feat: user login, token 발급 코드 merge">
+    <list default="true" id="9f2ad856-d612-4ac2-88a1-677a92637484" name="변경" comment="feat: '/post' UPDATE, PUT, DELETE method 실행 시, 토큰 확인하여 로그인한 사용자만 접근 가능하도록 예외처리">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/dto/post/AllPostRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/exception/enums/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/exception/enums/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/exception/enums/ErrorMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/exception/enums/ErrorMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/post/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/domain/post/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/laxyapp/service/post/PostService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1725294697334</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: '/post' UPDATE, PUT, DELETE method 실행 시, 토큰 확인하여 로그인한 사용자만 접근 가능하도록 예외처리">
+      <created>1725303370580</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1725303370580</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -284,18 +290,10 @@
     <MESSAGE value="refactor: User id 네이밍 수정" />
     <MESSAGE value="feat: user login 코드 merge" />
     <MESSAGE value="feat: user login, token 발급 코드 merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: user login, token 발급 코드 merge" />
+    <MESSAGE value="feat: '/post' UPDATE, PUT, DELETE method 실행 시, 토큰 확인하여 로그인한 사용자만 접근 가능하도록 예외처리" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: '/post' UPDATE, PUT, DELETE method 실행 시, 토큰 확인하여 로그인한 사용자만 접근 가능하도록 예외처리" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/group/laxyapp/controller/post/PostController.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="java.lang.invoke.MethodHandleProxies$1" memberName="target" />

@@ -1,6 +1,7 @@
 package com.group.laxyapp.controller.post;
 
 
+import com.group.laxyapp.dto.post.AllPostRequest;
 import com.group.laxyapp.dto.post.PostRequest;
 import com.group.laxyapp.dto.post.PostResponse;
 import com.group.laxyapp.service.post.PostService;
@@ -25,7 +26,7 @@ public class PostController {
 
     @GetMapping("/post")
     @ResponseBody
-    public ResponseEntity<List<PostResponse>> getPosts() {
+    public ResponseEntity<List<AllPostRequest>> getPosts() {
         return ResponseEntity.ok(postService.getPosts());
     }
 
