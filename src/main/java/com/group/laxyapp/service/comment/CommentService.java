@@ -43,5 +43,4 @@ public class CommentService {
         return commentRepository.findByCommentId(commentId)
             .orElseThrow(IllegalArgumentException::new);
     }
-
 }

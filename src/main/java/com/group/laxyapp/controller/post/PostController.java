@@ -40,7 +40,7 @@ public class PostController {
     @ResponseBody
     public ResponseEntity<Long> uploadPost(@RequestHeader("Authorization") String token,
         @RequestBody PostRequest updateRequest) {
-        return ResponseEntity.ok(postService.uploadPost(updateRequest).postId);
+        return ResponseEntity.ok(postService.uploadPost(updateRequest));
     }
 
     @PutMapping("/post/{post_id}")
@@ -48,7 +48,7 @@ public class PostController {
     public ResponseEntity<Long> updatePost(@RequestHeader("Authorization") String token,
         @PathVariable("post_id") Long postId,
         @RequestBody PostRequest request) {
-        return ResponseEntity.ok(postService.updatePost(postId, request).postId);
+        return ResponseEntity.ok(postService.updatePost(postId, request));
     }
 
     @DeleteMapping("/post/{post_id}")

@@ -29,10 +29,11 @@ public class TagService {
     }
 
     public void decrementTagsByName(List<String> names) {
-        List<Tag> unusedTags = names.stream()
+        names.stream()
             .map(tagRepository::findByTagName)
             .flatMap(Optional::stream)
             .peek(Tag::decrementCount)
-            .filter(tag -> tag.getCount() <= 0).toList();
+            .filter(tag -> tag.getCount() <= 0)
+            .forEach(tagRepository::delete);
     }
 }
