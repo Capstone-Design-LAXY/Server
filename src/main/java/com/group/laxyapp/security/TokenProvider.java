@@ -1,104 +1,97 @@
 package com.group.laxyapp.security;
 
-import com.group.laxyapp.service.RefreshTokenService;
-import com.group.laxyapp.service.user.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import jakarta.servlet.http.HttpServletRequest;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.Getter;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
+import java.util.Collections;
 import java.util.Date;
 
 @Component
-@RequiredArgsConstructor
+@Getter
 public class TokenProvider {
 
-    @Value("${jwt.secret}")
-    private String secretKey;
+    private final Key key;
+    private final long tokenValidityInSeconds;
+    private final long refreshTokenValidityInSeconds;
 
-    @Value("${jwt.token-validity-in-seconds}")
-    private long tokenValidityInSeconds;
-
-    private final UserService userService;
-    private final RefreshTokenService refreshTokenService;
-
-    private Key getKey() {
-        return Keys.hmacShaKeyFor(secretKey.getBytes());
+    public TokenProvider() {
+        this.key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+        this.tokenValidityInSeconds = 3600; // 1 hour
+        this.refreshTokenValidityInSeconds = 604800; // 1 week
     }
 
-    public String createToken(String email) {
+    public String createToken(String email, Long userId) {
         Claims claims = Jwts.claims().setSubject(email);
+        claims.put("userId", userId);
         Date now = new Date();
         Date validity = new Date(now.getTime() + tokenValidityInSeconds * 1000);
 
         return Jwts.builder()
-                .setClaims(claims)
-                .setIssuedAt(now)
-                .setExpiration(validity)
-                .signWith(getKey(), SignatureAlgorithm.HS256)
-                .compact();
+            .setClaims(claims)
+            .setIssuedAt(now)
+            .setExpiration(validity)
+            .signWith(key, SignatureAlgorithm.HS256)
+            .compact();
     }
 
-    public String createRefreshToken(String email) {
+    public String createRefreshToken(String email, Long userId) {
+        Claims claims = Jwts.claims().setSubject(email);
+        claims.put("userId", userId);
         Date now = new Date();
-        Date validity = new Date(now.getTime() + tokenValidityInSeconds * 1000 * 24 * 7); // 1주일 유효기간 예시
+        Date validity = new Date(now.getTime() + refreshTokenValidityInSeconds * 1000);
 
-        String refreshToken = Jwts.builder()
-                .setClaims(Jwts.claims().setSubject(email))
-                .setIssuedAt(now)
-                .setExpiration(validity)
-                .signWith(getKey(), SignatureAlgorithm.HS256)
-                .compact();
-
-        // RefreshToken 객체 생성 및 저장
-        refreshTokenService.createRefreshToken(email, refreshToken, validity);
-
-        return refreshToken;
+        return Jwts.builder()
+            .setClaims(claims)
+            .setIssuedAt(now)
+            .setExpiration(validity)
+            .signWith(key, SignatureAlgorithm.HS256)
+            .compact();
     }
 
-    public Authentication getAuthentication(String token) {
-        UserDetails userDetails = userService.loadUserByUsername(getUsername(token));
-        return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
+    public Claims getClaims(String token) {
+        return Jwts.parserBuilder()
+            .setSigningKey(key)
+            .build()
+            .parseClaimsJws(token)
+            .getBody();
     }
 
     public String getUsername(String token) {
-        Claims claims = Jwts.parserBuilder()
-                .setSigningKey(getKey())
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
-        return claims.getSubject();
+        return getClaims(token).getSubject();
     }
 
-    public String resolveToken(HttpServletRequest request) {
-        String bearerToken = request.getHeader("Authorization");
-        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
-            return bearerToken.substring(7);
-        }
-        return null;
+    public Long getUserIdFromToken(String token) {
+        Claims claims = getClaims(token);
+        return Long.parseLong(claims.get("userId").toString());
     }
 
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()
-                    .setSigningKey(getKey())
-                    .build()
-                    .parseClaimsJws(token);
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token);
             return true;
         } catch (Exception e) {
             return false;
         }
     }
 
-    public void logout(String token) {
-        refreshTokenService.deleteByToken(token);
+    public Authentication getAuthentication(String token) {
+        Claims claims = getClaims(token);
+        String email = claims.getSubject();
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");
+
+        UserDetails userDetails = new org.springframework.security.core.userdetails.User(email, "", Collections.singleton(authority));
+        return new UsernamePasswordAuthenticationToken(userDetails, token, Collections.singleton(authority));
     }
 }
