@@ -1,9 +1,10 @@
 package com.group.laxyapp.security;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
+import javax.crypto.spec.SecretKeySpec;
 import lombok.Getter;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,10 +24,10 @@ public class TokenProvider {
     private final long tokenValidityInSeconds;
     private final long refreshTokenValidityInSeconds;
 
-    public TokenProvider() {
-        this.key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-        this.tokenValidityInSeconds = 3600; // 1 hour
-        this.refreshTokenValidityInSeconds = 604800; // 1 week
+    public TokenProvider(String secretKey) {
+        this.key = new SecretKeySpec(secretKey.getBytes(), SignatureAlgorithm.HS256.getJcaName());
+        this.tokenValidityInSeconds = 3600;
+        this.refreshTokenValidityInSeconds = 604800;
     }
 
     public String createToken(String email, Long userId) {
@@ -74,13 +75,11 @@ public class TokenProvider {
         return Long.parseLong(claims.get("userId").toString());
     }
 
-    public boolean validateToken(String token) {
+    public boolean validateToken(String jwtToken) {
         try {
-            Jwts.parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token);
-            return true;
+            Jws<Claims> claims;
+            claims = Jwts.parser().setSigningKey(key).parseClaimsJws(jwtToken);
+            return !claims.getBody().getExpiration().before(new Date());
         } catch (Exception e) {
             return false;
         }

@@ -28,7 +28,6 @@ public class PostService {
     private final CommentService commentService;
     private final UserRepository userRepository;
     private final TagService TagService;
-
     private final static int MAX_TITLE_LENGTH = 30;
 
     @Transactional
@@ -52,8 +51,8 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public List<AllPostRequest> getPosts() {
-       List<Post> posts =  postRepository.findAll(Sort.by(Direction.DESC, "createdAt"));
-       return posts.stream().map(post -> AllPostRequest.builder()
+        List<Post> posts = postRepository.findAll(Sort.by(Direction.DESC, "createdAt"));
+        return posts.stream().map(post -> AllPostRequest.builder()
             .title(subTitle(post.getTitle()))
             .contents(post.getContents())
             .createdAt(post.getCreatedAt())
