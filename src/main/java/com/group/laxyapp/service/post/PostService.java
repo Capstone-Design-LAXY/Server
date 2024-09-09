@@ -87,6 +87,11 @@ public class PostService {
         return postRepository.getPostByPostId(postId).incrementLikes();
     }
 
+    @Transactional
+    public Long deleteLikes(Long postId) {
+        return postRepository.getPostByPostId(postId).decrementLikes();
+    }
+
     private Post setUpdatePost(Long postId, PostRequest request) {
         return postRepository.getPostByPostId(postId).toBuilder()
             .title(request.getTitle())

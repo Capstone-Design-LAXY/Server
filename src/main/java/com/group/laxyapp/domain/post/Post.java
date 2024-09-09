@@ -79,4 +79,8 @@ public class Post {
     public Long incrementLikes() {
         return ++this.likes;
     }
+
+    public Long decrementLikes() {
+        return --this.likes;
+    }
 }
