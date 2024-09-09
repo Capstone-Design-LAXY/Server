@@ -40,8 +40,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                 .requestMatchers("/", "/auth/**", "/index.html", "/user/login", "/signup", "/post/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/post").authenticated()
-                .requestMatchers(HttpMethod.PUT, "/post").authenticated()
-                .requestMatchers(HttpMethod.DELETE, "/post").authenticated()
+                .requestMatchers(HttpMethod.PUT, "/post/{post_id}").authenticated()
+                .requestMatchers(HttpMethod.DELETE, "/post/{post_id}").authenticated()
                 .anyRequest().permitAll()
             )
             .addFilterBefore(new JwtAuthenticationFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class)
@@ -64,7 +64,12 @@ public class SecurityConfig {
 
         return http.build();
     }
-
+    @Getter
+    @RequiredArgsConstructor
+    public static class ErrorResponse {
+        private final HttpStatus status;
+        private final String message;
+    }
 
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
@@ -82,7 +87,7 @@ public class SecurityConfig {
     }
 
     private final AuthenticationEntryPoint unauthorizedEntryPoint = (request, response, authException) -> {
-        ErrorResponse fail = new ErrorResponse(HttpStatus.UNAUTHORIZED, "Spring security unauthorized...");
+        ErrorResponse fail = new ErrorResponse(HttpStatus.UNAUTHORIZED, "Unauthorized: Token is missing or invalid");
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         try (PrintWriter writer = response.getWriter()) {
@@ -91,18 +96,11 @@ public class SecurityConfig {
     };
 
     private final AccessDeniedHandler accessDeniedHandler = (request, response, accessDeniedException) -> {
-        ErrorResponse fail = new ErrorResponse(HttpStatus.FORBIDDEN, "Spring security forbidden...");
+        ErrorResponse fail = new ErrorResponse(HttpStatus.FORBIDDEN, "Forbidden: Access is denied");
         response.setStatus(HttpStatus.FORBIDDEN.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         try (PrintWriter writer = response.getWriter()) {
             writer.write(new ObjectMapper().writeValueAsString(fail));
         }
     };
-
-    @Getter
-    @RequiredArgsConstructor
-    public static class ErrorResponse {
-        private final HttpStatus status;
-        private final String message;
-    }
 }
