@@ -68,7 +68,7 @@ public class PostService {
         Post post = postRepository.getPostByPostId(postId);
         return PostResponse.builder()
             .likes(post.getLikes())
-            .viewed(post.getViewed())
+            .viewed(post.incrementViewed())
             .title(post.getTitle())
             .contents(post.getContents())
             .userNickname(findUserById(post.getUserId()).getNickname())
@@ -80,6 +80,11 @@ public class PostService {
     public void deletePost(Long postId, PostRequest request) {
         PostValidator.checkAuthorPost(request.getUserId(), findUserById(postId).getUserId());
         postRepository.delete(postRepository.getPostByPostId(postId));
+    }
+
+    @Transactional
+    public Long uploadLikes(Long postId) {
+        return postRepository.getPostByPostId(postId).incrementLikes();
     }
 
     private Post setUpdatePost(Long postId, PostRequest request) {

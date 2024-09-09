@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/post").authenticated()
                 .requestMatchers(HttpMethod.PUT, "/post/{post_id}").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "/post/{post_id}").authenticated()
+                .requestMatchers(HttpMethod.PUT, "/post/{post_id}/likes").authenticated()
                 .anyRequest().permitAll()
             )
             .addFilterBefore(new JwtAuthenticationFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class)

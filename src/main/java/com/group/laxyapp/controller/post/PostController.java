@@ -58,4 +58,11 @@ public class PostController {
         @RequestBody PostRequest request) {
         postService.deletePost(postId, request);
     }
+
+    @PutMapping("/post/{post_id}/likes")
+    @ResponseBody
+    public ResponseEntity<Long> uploadLikes(@RequestHeader("Authorization") String token,
+        @PathVariable("post_id") Long postId) {
+        return ResponseEntity.ok(postService.uploadLikes(postId));
+    }
 }

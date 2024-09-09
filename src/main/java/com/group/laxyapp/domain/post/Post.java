@@ -72,8 +72,11 @@ public class Post {
         this.updatedAt = LocalDateTime.now();
     }
 
-    public Post incrementViewed() {
-        this.viewed++;
-        return this;
+    public Long incrementViewed() {
+        return ++this.viewed;
+    }
+
+    public Long incrementLikes() {
+        return ++this.likes;
     }
 }
