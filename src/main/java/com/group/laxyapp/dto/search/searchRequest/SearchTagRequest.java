@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class SearchUserRequest {
+public class SearchTagRequest {
 
-    private String nickname;
+    private final String tagname;
 }

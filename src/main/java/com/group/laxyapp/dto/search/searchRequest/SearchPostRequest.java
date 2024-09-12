@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class SearchUserRequest {
+public class SearchPostRequest {
 
-    private String nickname;
+    private final String title;
 }
